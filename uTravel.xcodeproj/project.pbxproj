@@ -7,62 +7,87 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C7F31C0D2600EC8200A5FD1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F31C0C2600EC8200A5FD1F /* AppDelegate.swift */; };
-		C7F31C0F2600EC8200A5FD1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F31C0E2600EC8200A5FD1F /* SceneDelegate.swift */; };
-		C7F31C112600EC8200A5FD1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F31C102600EC8200A5FD1F /* ViewController.swift */; };
-		C7F31C142600EC8200A5FD1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F31C122600EC8200A5FD1F /* Main.storyboard */; };
-		C7F31C162600EC8600A5FD1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F31C152600EC8600A5FD1F /* Assets.xcassets */; };
-		C7F31C192600EC8600A5FD1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F31C172600EC8600A5FD1F /* LaunchScreen.storyboard */; };
+		14455B7EA7BBBE5B4E2457A5 /* Pods_uTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB22D428A338BA2706F10C /* Pods_uTravel.framework */; };
+		C7BFCE33260D42BE00AFADCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BFCE32260D42BE00AFADCC /* AppDelegate.swift */; };
+		C7BFCE35260D42BE00AFADCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BFCE34260D42BE00AFADCC /* SceneDelegate.swift */; };
+		C7BFCE37260D42BE00AFADCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BFCE36260D42BE00AFADCC /* ViewController.swift */; };
+		C7BFCE3A260D42BE00AFADCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BFCE38260D42BE00AFADCC /* Main.storyboard */; };
+		C7BFCE3C260D42C100AFADCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7BFCE3B260D42C100AFADCC /* Assets.xcassets */; };
+		C7BFCE3F260D42C100AFADCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BFCE3D260D42C100AFADCC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C7F31C092600EC8200A5FD1F /* uTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7F31C0C2600EC8200A5FD1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7F31C0E2600EC8200A5FD1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C7F31C102600EC8200A5FD1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C7F31C132600EC8200A5FD1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C7F31C152600EC8600A5FD1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C7F31C182600EC8600A5FD1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C7F31C1A2600EC8600A5FD1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4514AF2FB7F91074E3B9BBE2 /* Pods-uTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uTravel.debug.xcconfig"; path = "Target Support Files/Pods-uTravel/Pods-uTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		AD54DC9CDCA38F333014CD11 /* Pods-uTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uTravel.release.xcconfig"; path = "Target Support Files/Pods-uTravel/Pods-uTravel.release.xcconfig"; sourceTree = "<group>"; };
+		C7BFCE2F260D42BE00AFADCC /* uTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7BFCE32260D42BE00AFADCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7BFCE34260D42BE00AFADCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C7BFCE36260D42BE00AFADCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7BFCE39260D42BE00AFADCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7BFCE3B260D42C100AFADCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7BFCE3E260D42C100AFADCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7BFCE40260D42C100AFADCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECDB22D428A338BA2706F10C /* Pods_uTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C7F31C062600EC8200A5FD1F /* Frameworks */ = {
+		C7BFCE2C260D42BE00AFADCC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14455B7EA7BBBE5B4E2457A5 /* Pods_uTravel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C7F31C002600EC8200A5FD1F = {
+		44DE8CCE71AB0D0AAD77CB92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7F31C0B2600EC8200A5FD1F /* uTravel */,
-				C7F31C0A2600EC8200A5FD1F /* Products */,
+				ECDB22D428A338BA2706F10C /* Pods_uTravel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B72E7400082CB5B36D83E06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4514AF2FB7F91074E3B9BBE2 /* Pods-uTravel.debug.xcconfig */,
+				AD54DC9CDCA38F333014CD11 /* Pods-uTravel.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C7BFCE26260D42BE00AFADCC = {
+			isa = PBXGroup;
+			children = (
+				C7BFCE31260D42BE00AFADCC /* uTravel */,
+				C7BFCE30260D42BE00AFADCC /* Products */,
+				7B72E7400082CB5B36D83E06 /* Pods */,
+				44DE8CCE71AB0D0AAD77CB92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		C7F31C0A2600EC8200A5FD1F /* Products */ = {
+		C7BFCE30260D42BE00AFADCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7F31C092600EC8200A5FD1F /* uTravel.app */,
+				C7BFCE2F260D42BE00AFADCC /* uTravel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C7F31C0B2600EC8200A5FD1F /* uTravel */ = {
+		C7BFCE31260D42BE00AFADCC /* uTravel */ = {
 			isa = PBXGroup;
 			children = (
-				C7F31C0C2600EC8200A5FD1F /* AppDelegate.swift */,
-				C7F31C0E2600EC8200A5FD1F /* SceneDelegate.swift */,
-				C7F31C102600EC8200A5FD1F /* ViewController.swift */,
-				C7F31C122600EC8200A5FD1F /* Main.storyboard */,
-				C7F31C152600EC8600A5FD1F /* Assets.xcassets */,
-				C7F31C172600EC8600A5FD1F /* LaunchScreen.storyboard */,
-				C7F31C1A2600EC8600A5FD1F /* Info.plist */,
+				C7BFCE32260D42BE00AFADCC /* AppDelegate.swift */,
+				C7BFCE34260D42BE00AFADCC /* SceneDelegate.swift */,
+				C7BFCE36260D42BE00AFADCC /* ViewController.swift */,
+				C7BFCE38260D42BE00AFADCC /* Main.storyboard */,
+				C7BFCE3B260D42C100AFADCC /* Assets.xcassets */,
+				C7BFCE3D260D42C100AFADCC /* LaunchScreen.storyboard */,
+				C7BFCE40260D42C100AFADCC /* Info.plist */,
 			);
 			path = uTravel;
 			sourceTree = "<group>";
@@ -70,13 +95,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7F31C082600EC8200A5FD1F /* uTravel */ = {
+		C7BFCE2E260D42BE00AFADCC /* uTravel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7F31C1D2600EC8600A5FD1F /* Build configuration list for PBXNativeTarget "uTravel" */;
+			buildConfigurationList = C7BFCE43260D42C100AFADCC /* Build configuration list for PBXNativeTarget "uTravel" */;
 			buildPhases = (
-				C7F31C052600EC8200A5FD1F /* Sources */,
-				C7F31C062600EC8200A5FD1F /* Frameworks */,
-				C7F31C072600EC8200A5FD1F /* Resources */,
+				B38FCEA145D1CC249039B487 /* [CP] Check Pods Manifest.lock */,
+				C7BFCE2B260D42BE00AFADCC /* Sources */,
+				C7BFCE2C260D42BE00AFADCC /* Frameworks */,
+				C7BFCE2D260D42BE00AFADCC /* Resources */,
+				2C1962FC67DE4B7553E79F36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,24 +111,24 @@
 			);
 			name = uTravel;
 			productName = uTravel;
-			productReference = C7F31C092600EC8200A5FD1F /* uTravel.app */;
+			productReference = C7BFCE2F260D42BE00AFADCC /* uTravel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C7F31C012600EC8200A5FD1F /* Project object */ = {
+		C7BFCE27260D42BE00AFADCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					C7F31C082600EC8200A5FD1F = {
+					C7BFCE2E260D42BE00AFADCC = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
-			buildConfigurationList = C7F31C042600EC8200A5FD1F /* Build configuration list for PBXProject "uTravel" */;
+			buildConfigurationList = C7BFCE2A260D42BE00AFADCC /* Build configuration list for PBXProject "uTravel" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,55 +136,97 @@
 				en,
 				Base,
 			);
-			mainGroup = C7F31C002600EC8200A5FD1F;
-			productRefGroup = C7F31C0A2600EC8200A5FD1F /* Products */;
+			mainGroup = C7BFCE26260D42BE00AFADCC;
+			productRefGroup = C7BFCE30260D42BE00AFADCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7F31C082600EC8200A5FD1F /* uTravel */,
+				C7BFCE2E260D42BE00AFADCC /* uTravel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C7F31C072600EC8200A5FD1F /* Resources */ = {
+		C7BFCE2D260D42BE00AFADCC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F31C192600EC8600A5FD1F /* LaunchScreen.storyboard in Resources */,
-				C7F31C162600EC8600A5FD1F /* Assets.xcassets in Resources */,
-				C7F31C142600EC8200A5FD1F /* Main.storyboard in Resources */,
+				C7BFCE3F260D42C100AFADCC /* LaunchScreen.storyboard in Resources */,
+				C7BFCE3C260D42C100AFADCC /* Assets.xcassets in Resources */,
+				C7BFCE3A260D42BE00AFADCC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C1962FC67DE4B7553E79F36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B38FCEA145D1CC249039B487 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-uTravel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		C7F31C052600EC8200A5FD1F /* Sources */ = {
+		C7BFCE2B260D42BE00AFADCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F31C112600EC8200A5FD1F /* ViewController.swift in Sources */,
-				C7F31C0D2600EC8200A5FD1F /* AppDelegate.swift in Sources */,
-				C7F31C0F2600EC8200A5FD1F /* SceneDelegate.swift in Sources */,
+				C7BFCE37260D42BE00AFADCC /* ViewController.swift in Sources */,
+				C7BFCE33260D42BE00AFADCC /* AppDelegate.swift in Sources */,
+				C7BFCE35260D42BE00AFADCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7F31C122600EC8200A5FD1F /* Main.storyboard */ = {
+		C7BFCE38260D42BE00AFADCC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C7F31C132600EC8200A5FD1F /* Base */,
+				C7BFCE39260D42BE00AFADCC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C7F31C172600EC8600A5FD1F /* LaunchScreen.storyboard */ = {
+		C7BFCE3D260D42C100AFADCC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C7F31C182600EC8600A5FD1F /* Base */,
+				C7BFCE3E260D42C100AFADCC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -165,7 +234,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C7F31C1B2600EC8600A5FD1F /* Debug */ = {
+		C7BFCE41260D42C100AFADCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +295,7 @@
 			};
 			name = Debug;
 		};
-		C7F31C1C2600EC8600A5FD1F /* Release */ = {
+		C7BFCE42260D42C100AFADCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -281,38 +350,38 @@
 			};
 			name = Release;
 		};
-		C7F31C1E2600EC8600A5FD1F /* Debug */ = {
+		C7BFCE44260D42C100AFADCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4514AF2FB7F91074E3B9BBE2 /* Pods-uTravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7CAB7ZQYW;
 				INFOPLIST_FILE = uTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dmitryru.uTravel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uTeam.uTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C7F31C1F2600EC8600A5FD1F /* Release */ = {
+		C7BFCE45260D42C100AFADCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD54DC9CDCA38F333014CD11 /* Pods-uTravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7CAB7ZQYW;
 				INFOPLIST_FILE = uTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dmitryru.uTravel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uTeam.uTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,25 +391,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7F31C042600EC8200A5FD1F /* Build configuration list for PBXProject "uTravel" */ = {
+		C7BFCE2A260D42BE00AFADCC /* Build configuration list for PBXProject "uTravel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7F31C1B2600EC8600A5FD1F /* Debug */,
-				C7F31C1C2600EC8600A5FD1F /* Release */,
+				C7BFCE41260D42C100AFADCC /* Debug */,
+				C7BFCE42260D42C100AFADCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7F31C1D2600EC8600A5FD1F /* Build configuration list for PBXNativeTarget "uTravel" */ = {
+		C7BFCE43260D42C100AFADCC /* Build configuration list for PBXNativeTarget "uTravel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7F31C1E2600EC8600A5FD1F /* Debug */,
-				C7F31C1F2600EC8600A5FD1F /* Release */,
+				C7BFCE44260D42C100AFADCC /* Debug */,
+				C7BFCE45260D42C100AFADCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C7F31C012600EC8200A5FD1F /* Project object */;
+	rootObject = C7BFCE27260D42BE00AFADCC /* Project object */;
 }
