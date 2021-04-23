@@ -9,17 +9,13 @@
 import UIKit
 
 final class LoginRouter {
-    weak var viewController: UIViewController?
+    weak var logViewController: UIViewController?
+    weak var output: RegistrationViewOutput?
 }
 
 extension LoginRouter: LoginRouterInput {
     func openRegistration() {
-        let viewController = RegistrationViewController()
-        viewController.view.backgroundColor = .yellow
-
-        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+        let regViewController = RegistrationViewController(output: self.output!)
+        self.logViewController?.navigationController?.pushViewController(regViewController, animated: true)
     }
-    
-    
-    
 }

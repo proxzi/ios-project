@@ -9,9 +9,9 @@
 import Foundation
 
 final class LoginPresenter {
-	weak var view: LoginViewInput?
+	weak var logView: LoginViewInput?
+    weak var regView: RegistrationViewInput?
     weak var moduleOutput: LoginModuleOutput?
-
 	private let router: LoginRouterInput
 	private let interactor: LoginInteractorInput
 
@@ -26,10 +26,20 @@ extension LoginPresenter: LoginModuleInput {
 
 extension LoginPresenter: LoginViewOutput {
     func didTapLoginButton() {
+        print("login")
+    }
+    
+    func didTapRegistrationLabel() {
         router.openRegistration()
     }
     
 }
 
 extension LoginPresenter: LoginInteractorOutput {
+}
+
+extension LoginPresenter: RegistrationViewOutput{
+    func didTapRegButton(){
+        print("registration")
+    }
 }

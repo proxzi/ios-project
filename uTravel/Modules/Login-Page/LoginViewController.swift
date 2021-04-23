@@ -11,9 +11,10 @@ import PinLayout
 
 final class LoginViewController: UIViewController {
 	private let output: LoginViewOutput
+    
     private let logoImageView = UIImageView(image: UIImage(named: "logo"))
-    private let loginButton = UIButton()
     private let headLabel = UILabel()
+    private let loginButton = UIButton()
     
     private let containerLogPassView = UIView()
     
@@ -57,8 +58,8 @@ final class LoginViewController: UIViewController {
                                            green: 102/255,
                                            blue: 102/255,
                                            alpha: 1)
-        loginEdit.placeholder = "Логин"
-        passwordEdit.placeholder = "Пароль"
+        
+        
         
         forgotLabel.text = "Забыли пароль?"
         forgotLabel.textAlignment = .center
@@ -75,8 +76,11 @@ final class LoginViewController: UIViewController {
                                         green: 125/255,
                                         blue: 13/255,
                                         alpha: 1)
+        signUpLabel.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapRegistrationLabel))
+        signUpLabel.addGestureRecognizer(gestureRecognizer)
        
-        
+        loginEdit.placeholder = "Логин"
         loginEdit.layer.borderColor = UIColor(red: 238/255,
                                               green: 238/255,
                                               blue: 238/255,
@@ -86,7 +90,7 @@ final class LoginViewController: UIViewController {
         loginEdit.layer.masksToBounds = true
         loginEdit.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
         
-        
+        passwordEdit.placeholder = "Пароль"
         passwordEdit.layer.borderColor = UIColor(red: 238/255,
                                                  green: 238/255,
                                                  blue: 238/255,
@@ -155,18 +159,20 @@ final class LoginViewController: UIViewController {
             .height(40)
             .horizontally()
             .below(of: forgotLabel).marginTop(16)
-        signUpLabel.pin.below(of: loginButton).marginTop(17).sizeToFit().hCenter()
         loginButton.pin
             .height(40)
             .horizontally()
-            .below(of: forgotLabel).marginTop(16)
         signUpLabel.pin.below(of: loginButton).marginTop(17).sizeToFit().hCenter()
-        
 
     }
     @objc
     private func didTapLoginButton() {
         output.didTapLoginButton()
+    }
+    
+    @objc
+    private func didTapRegistrationLabel(){
+        output.didTapRegistrationLabel()
     }
 }
 

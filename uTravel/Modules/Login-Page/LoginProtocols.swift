@@ -20,6 +20,7 @@ protocol LoginViewInput: AnyObject {
 
 protocol LoginViewOutput: AnyObject {
     func didTapLoginButton()
+    func didTapRegistrationLabel()
 }
 
 protocol LoginInteractorInput: AnyObject {
@@ -36,4 +37,5 @@ protocol RegistrationViewInput: AnyObject {
 }
 
 protocol RegistrationViewOutput: AnyObject {
+    func didTapRegButton()
 }
