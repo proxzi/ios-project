@@ -25,6 +25,7 @@ final class RegistrationViewController: UIViewController {
     private let repeatPasswordEdit = UITextField()
     private let regButton = UIButton()
     private let regButtonView = UIView()
+    private var sex = String()
     
     init(output: RegistrationViewOutput) {
         self.output = output
@@ -35,7 +36,7 @@ final class RegistrationViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -60,21 +61,23 @@ final class RegistrationViewController: UIViewController {
                                            blue: 102/255,
                                            alpha: 1)
         
-        maleRButton.setTitle("Male", for: .normal)
+        maleRButton.setTitle("Мужчина", for: .normal)
         maleRButton.setTitleColor(.black, for: .normal)
         maleRButton.backgroundColor = .white
         maleRButton.layer.borderWidth = 1
-        maleRButton.layer.borderColor = UIColor.gray.cgColor
+        maleRButton.layer.borderColor = UIColor.orange.cgColor
         maleRButton.layer.cornerRadius = 7
         maleRButton.layer.masksToBounds = true
+        maleRButton.addTarget(self, action: #selector(didTapRadioButton), for: .touchUpInside)
         
-        femaleRButton.setTitle("Female", for: .normal)
+        femaleRButton.setTitle("Женщина", for: .normal)
         femaleRButton.setTitleColor(.black, for: .normal)
         femaleRButton.backgroundColor = .white
         femaleRButton.layer.borderWidth = 1
         femaleRButton.layer.borderColor = UIColor.gray.cgColor
         femaleRButton.layer.cornerRadius = 7
         femaleRButton.layer.masksToBounds = true
+        femaleRButton.addTarget(self, action: #selector(didTapRadioButton), for: .touchUpInside)
         
         formRegistrationView.isUserInteractionEnabled = true
         
@@ -194,16 +197,35 @@ final class RegistrationViewController: UIViewController {
             .height(40)
             .horizontally()
     }
-    
+    @objc func didTapRadioButton(_ sender: UIButton) {
+        if(sender == maleRButton && femaleRButton.layer.borderColor == UIColor.orange.cgColor)
+        {
+            sender.layer.borderColor = UIColor.orange.cgColor
+            femaleRButton.layer.borderColor = UIColor.gray.cgColor
+        }
+        else if (sender == femaleRButton && maleRButton.layer.borderColor == UIColor.orange.cgColor)
+        {
+            sender.layer.borderColor = UIColor.orange.cgColor
+            maleRButton.layer.borderColor = UIColor.gray.cgColor
+        }
+        sex = sender.currentTitle!
+    }
     
     @objc
-    func didTapRegButton(){
-        output.didTapRegButton()
+    func didTapRegButton() {
+        guard let email = loginEdit.text, !email.isEmpty else {
+            print("empty or not valid login")
+            return
+        }
+        guard let password = passwordEdit.text, !password.isEmpty, password == repeatPasswordEdit.text else {
+            print("empty or not valid password")
+            return
+        }
+        output.didTapRegButton(email: email, password: password)
     }
 }
 
 extension LoginViewController: RegistrationViewInput {
 
 }
-
 

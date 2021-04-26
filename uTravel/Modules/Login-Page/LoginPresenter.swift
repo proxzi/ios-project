@@ -24,8 +24,11 @@ final class LoginPresenter {
 extension LoginPresenter: LoginModuleInput {
 }
 
-extension LoginPresenter: LoginViewOutput {
-    func didTapLoginButton() {
+extension LoginPresenter: LoginViewOutput{
+
+    
+    func didTapLoginButton(email: String, password: String) {
+        interactor.auth(withEmail: email, password: password)
         print("login")
     }
     
@@ -39,7 +42,9 @@ extension LoginPresenter: LoginInteractorOutput {
 }
 
 extension LoginPresenter: RegistrationViewOutput{
-    func didTapRegButton(){
+    func didTapRegButton(email: String, password: String) {
+        interactor.createUser(withEmail: email, password: password)
         print("registration")
     }
+
 }

@@ -26,6 +26,8 @@ final class LoginViewController: UIViewController {
     private let signUpLabel = UILabel()
     private let loginButtonView = UIView()
     
+    private let errorLabel = UILabel()
+    
     init(output: LoginViewOutput) {
         self.output = output
 
@@ -59,7 +61,14 @@ final class LoginViewController: UIViewController {
                                            blue: 102/255,
                                            alpha: 1)
         
-        
+        errorLabel.text = "Неверный логин или пароль"
+        errorLabel.textAlignment = .center
+        errorLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        errorLabel.textColor =  UIColor(red: 232/255,
+                                           green: 51/255,
+                                           blue: 35/255,
+                                           alpha: 1)
+        errorLabel.layer.isHidden = true
         
         forgotLabel.text = "Забыли пароль?"
         forgotLabel.textAlignment = .center
@@ -68,6 +77,8 @@ final class LoginViewController: UIViewController {
                                        green: 125/255,
                                        blue: 13/255,
                                        alpha: 1)
+        
+        
         
         signUpLabel.text = "Зарегистрироваться"
         signUpLabel.textAlignment = .center
@@ -123,7 +134,7 @@ final class LoginViewController: UIViewController {
         containerLogPassView.isUserInteractionEnabled = true
         loginButtonView.addSubview(loginButton)
         
-        [loginLabel, loginEdit, passwordLabel, passwordEdit, loginButtonView, forgotLabel, signUpLabel].forEach{containerLogPassView.addSubview($0)}
+        [loginLabel, loginEdit, passwordLabel, passwordEdit, loginButtonView, forgotLabel, signUpLabel, errorLabel].forEach{containerLogPassView.addSubview($0)}
         
         [containerLogPassView, logoImageView, headLabel].forEach{ view.addSubview($0)}
         
@@ -153,7 +164,7 @@ final class LoginViewController: UIViewController {
             .height(40)
             .horizontally()
             .below(of: passwordLabel).marginTop(5)
-        
+        errorLabel.pin.below(of: passwordEdit).marginTop(5).sizeToFit().left()
         forgotLabel.pin.below(of: passwordEdit).marginTop(28).sizeToFit().hCenter()
         loginButtonView.pin
             .height(40)
@@ -167,11 +178,23 @@ final class LoginViewController: UIViewController {
     }
     @objc
     private func didTapLoginButton() {
-        output.didTapLoginButton()
+        guard let email = loginEdit.text, !email.isEmpty else {
+            print("empty or not valid login")
+            errorLabel.isHidden = false
+            return
+        }
+        guard let password = passwordEdit.text, !password.isEmpty else {
+            print("empty or not valid password")
+            return
+        }
+        errorLabel.isHidden = true
+        output.didTapLoginButton(email: email, password: password)
+
     }
     
     @objc
     private func didTapRegistrationLabel(){
+        errorLabel.isHidden = true
         output.didTapRegistrationLabel()
     }
 }

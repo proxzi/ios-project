@@ -19,11 +19,13 @@ protocol LoginViewInput: AnyObject {
 }
 
 protocol LoginViewOutput: AnyObject {
-    func didTapLoginButton()
+    func didTapLoginButton(email: String, password: String)
     func didTapRegistrationLabel()
 }
 
 protocol LoginInteractorInput: AnyObject {
+    func auth(withEmail: String, password: String)
+    func createUser(withEmail: String, password: String)
 }
 
 protocol LoginInteractorOutput: AnyObject {
@@ -31,11 +33,12 @@ protocol LoginInteractorOutput: AnyObject {
 
 protocol LoginRouterInput: AnyObject {
     func openRegistration()
+    func openMain()
 }
 
 protocol RegistrationViewInput: AnyObject {
 }
 
 protocol RegistrationViewOutput: AnyObject {
-    func didTapRegButton()
+    func didTapRegButton(email: String, password: String)
 }

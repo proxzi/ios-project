@@ -14,6 +14,12 @@ final class LoginRouter {
 }
 
 extension LoginRouter: LoginRouterInput {
+    func openMain() {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .yellow
+        self.logViewController?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func openRegistration() {
         let regViewController = RegistrationViewController(output: self.output!)
         self.logViewController?.navigationController?.pushViewController(regViewController, animated: true)

@@ -7,4 +7,9 @@ target 'uTravel' do
 
   # Pods for uTravel
 	pod "PinLayout"
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'
+	pod 'Firebase/Auth'
+	
 end
