@@ -9,7 +9,7 @@
 import Foundation
 
 final class MainPresenter {
-	weak var view: MainViewInput?
+	weak var view: MainTabBarControllerInput?
     weak var moduleOutput: MainModuleOutput?
 
 	private let router: MainRouterInput
@@ -24,7 +24,7 @@ final class MainPresenter {
 extension MainPresenter: MainModuleInput {
 }
 
-extension MainPresenter: MainViewOutput {
+extension MainPresenter: MainTabBarControllerOutput {
 }
 
 extension MainPresenter: MainInteractorOutput {

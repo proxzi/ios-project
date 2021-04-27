@@ -15,14 +15,51 @@
 		C72375C6262E0BC1001DB744 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72375C0262E0BC1001DB744 /* LoginInteractor.swift */; };
 		C72375C7262E0BC1001DB744 /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72375C1262E0BC1001DB744 /* LoginContainer.swift */; };
 		C72375E4262E3DAB001DB744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72375E3262E3DAB001DB744 /* Main.storyboard */; };
-		C72375E8262E4067001DB744 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72375E7262E4067001DB744 /* RegistrationViewController.swift */; };
+		C764AB4C26374B9A00C4331D /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4626374B9A00C4331D /* ExplorePresenter.swift */; };
+		C764AB4D26374B9A00C4331D /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4726374B9A00C4331D /* ExploreRouter.swift */; };
+		C764AB4E26374B9A00C4331D /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4826374B9A00C4331D /* ExploreViewController.swift */; };
+		C764AB4F26374B9A00C4331D /* ExploreProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4926374B9A00C4331D /* ExploreProtocols.swift */; };
+		C764AB5026374B9A00C4331D /* ExploreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4A26374B9A00C4331D /* ExploreInteractor.swift */; };
+		C764AB5126374B9A00C4331D /* ExploreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4B26374B9A00C4331D /* ExploreContainer.swift */; };
+		C764AB5A26374C0A00C4331D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB5426374C0A00C4331D /* ProfilePresenter.swift */; };
+		C764AB5B26374C0A00C4331D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB5526374C0A00C4331D /* ProfileRouter.swift */; };
+		C764AB5C26374C0A00C4331D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB5626374C0A00C4331D /* ProfileViewController.swift */; };
+		C764AB5D26374C0A00C4331D /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB5726374C0A00C4331D /* ProfileProtocols.swift */; };
+		C764AB5E26374C0A00C4331D /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB5826374C0A00C4331D /* ProfileInteractor.swift */; };
+		C764AB5F26374C0A00C4331D /* ProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB5926374C0A00C4331D /* ProfileContainer.swift */; };
+		C764AB8526374DD500C4331D /* AddTravelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB7F26374DD500C4331D /* AddTravelPresenter.swift */; };
+		C764AB8626374DD500C4331D /* AddTravelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB8026374DD500C4331D /* AddTravelRouter.swift */; };
+		C764AB8726374DD500C4331D /* AddTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB8126374DD500C4331D /* AddTravelViewController.swift */; };
+		C764AB8826374DD500C4331D /* AddTravelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB8226374DD500C4331D /* AddTravelProtocols.swift */; };
+		C764AB8926374DD500C4331D /* AddTravelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB8326374DD500C4331D /* AddTravelInteractor.swift */; };
+		C764AB8A26374DD500C4331D /* AddTravelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB8426374DD500C4331D /* AddTravelContainer.swift */; };
+		C764AB952637530F00C4331D /* ProfileSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB8F2637530F00C4331D /* ProfileSettingsPresenter.swift */; };
+		C764AB962637530F00C4331D /* ProfileSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB902637530F00C4331D /* ProfileSettingsRouter.swift */; };
+		C764AB972637530F00C4331D /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB912637530F00C4331D /* ProfileSettingsViewController.swift */; };
+		C764AB982637530F00C4331D /* ProfileSettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB922637530F00C4331D /* ProfileSettingsProtocols.swift */; };
+		C764AB992637530F00C4331D /* ProfileSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB932637530F00C4331D /* ProfileSettingsInteractor.swift */; };
+		C764AB9A2637530F00C4331D /* ProfileSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB942637530F00C4331D /* ProfileSettingsContainer.swift */; };
+		C78115B02637699D008E8D92 /* TravelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115AF2637699D008E8D92 /* TravelCollectionViewCell.swift */; };
+		C78115EF2637947A008E8D92 /* TravelDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115E92637947A008E8D92 /* TravelDetailPresenter.swift */; };
+		C78115F02637947A008E8D92 /* TravelDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115EA2637947A008E8D92 /* TravelDetailRouter.swift */; };
+		C78115F12637947A008E8D92 /* TravelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115EB2637947A008E8D92 /* TravelDetailViewController.swift */; };
+		C78115F22637947A008E8D92 /* TravelDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115EC2637947A008E8D92 /* TravelDetailProtocols.swift */; };
+		C78115F32637947A008E8D92 /* TravelDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115ED2637947A008E8D92 /* TravelDetailInteractor.swift */; };
+		C78115F42637947A008E8D92 /* TravelDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115EE2637947A008E8D92 /* TravelDetailContainer.swift */; };
 		C79FE6D72636E4ED003AAA91 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D12636E4ED003AAA91 /* MainPresenter.swift */; };
 		C79FE6D82636E4ED003AAA91 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D22636E4ED003AAA91 /* MainRouter.swift */; };
-		C79FE6D92636E4ED003AAA91 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D32636E4ED003AAA91 /* MainViewController.swift */; };
+		C79FE6D92636E4ED003AAA91 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D32636E4ED003AAA91 /* MainTabBarController.swift */; };
 		C79FE6DA2636E4ED003AAA91 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D42636E4ED003AAA91 /* MainProtocols.swift */; };
 		C79FE6DB2636E4ED003AAA91 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D52636E4ED003AAA91 /* MainInteractor.swift */; };
 		C79FE6DC2636E4ED003AAA91 /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE6D62636E4ED003AAA91 /* MainContainer.swift */; };
 		C79FE6E82636E6BF003AAA91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C79FE6E72636E6BF003AAA91 /* GoogleService-Info.plist */; };
+		C79FE73526372743003AAA91 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE72F26372743003AAA91 /* RegistrationPresenter.swift */; };
+		C79FE73626372743003AAA91 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE73026372743003AAA91 /* RegistrationRouter.swift */; };
+		C79FE73726372743003AAA91 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE73126372743003AAA91 /* RegistrationViewController.swift */; };
+		C79FE73826372743003AAA91 /* RegistrationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE73226372743003AAA91 /* RegistrationProtocols.swift */; };
+		C79FE73926372743003AAA91 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE73326372743003AAA91 /* RegistrationInteractor.swift */; };
+		C79FE73A26372743003AAA91 /* RegistrationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE73426372743003AAA91 /* RegistrationContainer.swift */; };
+		C79FE74126374332003AAA91 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FE74026374332003AAA91 /* utils.swift */; };
 		C7BFCE33260D42BE00AFADCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BFCE32260D42BE00AFADCC /* AppDelegate.swift */; };
 		C7BFCE35260D42BE00AFADCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BFCE34260D42BE00AFADCC /* SceneDelegate.swift */; };
 		C7BFCE3C260D42C100AFADCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7BFCE3B260D42C100AFADCC /* Assets.xcassets */; };
@@ -39,14 +76,51 @@
 		C72375C0262E0BC1001DB744 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		C72375C1262E0BC1001DB744 /* LoginContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainer.swift; sourceTree = "<group>"; };
 		C72375E3262E3DAB001DB744 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		C72375E7262E4067001DB744 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		C764AB4626374B9A00C4331D /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
+		C764AB4726374B9A00C4331D /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
+		C764AB4826374B9A00C4331D /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		C764AB4926374B9A00C4331D /* ExploreProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProtocols.swift; sourceTree = "<group>"; };
+		C764AB4A26374B9A00C4331D /* ExploreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractor.swift; sourceTree = "<group>"; };
+		C764AB4B26374B9A00C4331D /* ExploreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreContainer.swift; sourceTree = "<group>"; };
+		C764AB5426374C0A00C4331D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		C764AB5526374C0A00C4331D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		C764AB5626374C0A00C4331D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C764AB5726374C0A00C4331D /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
+		C764AB5826374C0A00C4331D /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		C764AB5926374C0A00C4331D /* ProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContainer.swift; sourceTree = "<group>"; };
+		C764AB7F26374DD500C4331D /* AddTravelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelPresenter.swift; sourceTree = "<group>"; };
+		C764AB8026374DD500C4331D /* AddTravelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelRouter.swift; sourceTree = "<group>"; };
+		C764AB8126374DD500C4331D /* AddTravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelViewController.swift; sourceTree = "<group>"; };
+		C764AB8226374DD500C4331D /* AddTravelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelProtocols.swift; sourceTree = "<group>"; };
+		C764AB8326374DD500C4331D /* AddTravelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelInteractor.swift; sourceTree = "<group>"; };
+		C764AB8426374DD500C4331D /* AddTravelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelContainer.swift; sourceTree = "<group>"; };
+		C764AB8F2637530F00C4331D /* ProfileSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsPresenter.swift; sourceTree = "<group>"; };
+		C764AB902637530F00C4331D /* ProfileSettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsRouter.swift; sourceTree = "<group>"; };
+		C764AB912637530F00C4331D /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		C764AB922637530F00C4331D /* ProfileSettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsProtocols.swift; sourceTree = "<group>"; };
+		C764AB932637530F00C4331D /* ProfileSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsInteractor.swift; sourceTree = "<group>"; };
+		C764AB942637530F00C4331D /* ProfileSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsContainer.swift; sourceTree = "<group>"; };
+		C78115AF2637699D008E8D92 /* TravelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCollectionViewCell.swift; sourceTree = "<group>"; };
+		C78115E92637947A008E8D92 /* TravelDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailPresenter.swift; sourceTree = "<group>"; };
+		C78115EA2637947A008E8D92 /* TravelDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailRouter.swift; sourceTree = "<group>"; };
+		C78115EB2637947A008E8D92 /* TravelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailViewController.swift; sourceTree = "<group>"; };
+		C78115EC2637947A008E8D92 /* TravelDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailProtocols.swift; sourceTree = "<group>"; };
+		C78115ED2637947A008E8D92 /* TravelDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailInteractor.swift; sourceTree = "<group>"; };
+		C78115EE2637947A008E8D92 /* TravelDetailContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailContainer.swift; sourceTree = "<group>"; };
 		C79FE6D12636E4ED003AAA91 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		C79FE6D22636E4ED003AAA91 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
-		C79FE6D32636E4ED003AAA91 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C79FE6D32636E4ED003AAA91 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C79FE6D42636E4ED003AAA91 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
 		C79FE6D52636E4ED003AAA91 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		C79FE6D62636E4ED003AAA91 /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		C79FE6E72636E6BF003AAA91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C79FE72F26372743003AAA91 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		C79FE73026372743003AAA91 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		C79FE73126372743003AAA91 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		C79FE73226372743003AAA91 /* RegistrationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProtocols.swift; sourceTree = "<group>"; };
+		C79FE73326372743003AAA91 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
+		C79FE73426372743003AAA91 /* RegistrationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationContainer.swift; sourceTree = "<group>"; };
+		C79FE74026374332003AAA91 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		C7BFCE2F260D42BE00AFADCC /* uTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7BFCE32260D42BE00AFADCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7BFCE34260D42BE00AFADCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,8 +162,8 @@
 		C72375BA262E0B8D001DB744 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C764AB8C2637523900C4331D /* Welcome */,
 				C79FE6D02636E4D4003AAA91 /* Main-Page */,
-				C72375BB262E0B9B001DB744 /* Login-Page */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -99,7 +173,6 @@
 			children = (
 				C72375BC262E0BC1001DB744 /* LoginPresenter.swift */,
 				C72375BD262E0BC1001DB744 /* LoginRouter.swift */,
-				C72375E7262E4067001DB744 /* RegistrationViewController.swift */,
 				C72375BE262E0BC1001DB744 /* LoginViewController.swift */,
 				C72375BF262E0BC1001DB744 /* LoginProtocols.swift */,
 				C72375C0262E0BC1001DB744 /* LoginInteractor.swift */,
@@ -108,17 +181,118 @@
 			path = "Login-Page";
 			sourceTree = "<group>";
 		};
+		C764AB36263749EE00C4331D /* Explore-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C78115E82637945C008E8D92 /* TravelDetail-Page */,
+				C78115AD2637696C008E8D92 /* Cell */,
+				C764AB4626374B9A00C4331D /* ExplorePresenter.swift */,
+				C764AB4726374B9A00C4331D /* ExploreRouter.swift */,
+				C764AB4826374B9A00C4331D /* ExploreViewController.swift */,
+				C764AB4926374B9A00C4331D /* ExploreProtocols.swift */,
+				C764AB4A26374B9A00C4331D /* ExploreInteractor.swift */,
+				C764AB4B26374B9A00C4331D /* ExploreContainer.swift */,
+			);
+			path = "Explore-Page";
+			sourceTree = "<group>";
+		};
+		C764AB5326374BFA00C4331D /* Profile-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C764AB8E263752F100C4331D /* Profile-Settings-Page */,
+				C764AB5426374C0A00C4331D /* ProfilePresenter.swift */,
+				C764AB5526374C0A00C4331D /* ProfileRouter.swift */,
+				C764AB5626374C0A00C4331D /* ProfileViewController.swift */,
+				C764AB5726374C0A00C4331D /* ProfileProtocols.swift */,
+				C764AB5826374C0A00C4331D /* ProfileInteractor.swift */,
+				C764AB5926374C0A00C4331D /* ProfileContainer.swift */,
+			);
+			path = "Profile-Page";
+			sourceTree = "<group>";
+		};
+		C764AB6126374C5300C4331D /* AddTravel-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C764AB7F26374DD500C4331D /* AddTravelPresenter.swift */,
+				C764AB8026374DD500C4331D /* AddTravelRouter.swift */,
+				C764AB8126374DD500C4331D /* AddTravelViewController.swift */,
+				C764AB8226374DD500C4331D /* AddTravelProtocols.swift */,
+				C764AB8326374DD500C4331D /* AddTravelInteractor.swift */,
+				C764AB8426374DD500C4331D /* AddTravelContainer.swift */,
+			);
+			path = "AddTravel-Page";
+			sourceTree = "<group>";
+		};
+		C764AB8C2637523900C4331D /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				C79FE72E2637272A003AAA91 /* Registration-Page */,
+				C72375BB262E0B9B001DB744 /* Login-Page */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		C764AB8E263752F100C4331D /* Profile-Settings-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C764AB8F2637530F00C4331D /* ProfileSettingsPresenter.swift */,
+				C764AB902637530F00C4331D /* ProfileSettingsRouter.swift */,
+				C764AB912637530F00C4331D /* ProfileSettingsViewController.swift */,
+				C764AB922637530F00C4331D /* ProfileSettingsProtocols.swift */,
+				C764AB932637530F00C4331D /* ProfileSettingsInteractor.swift */,
+				C764AB942637530F00C4331D /* ProfileSettingsContainer.swift */,
+			);
+			path = "Profile-Settings-Page";
+			sourceTree = "<group>";
+		};
+		C78115AD2637696C008E8D92 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C78115AF2637699D008E8D92 /* TravelCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C78115E82637945C008E8D92 /* TravelDetail-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C78115E92637947A008E8D92 /* TravelDetailPresenter.swift */,
+				C78115EA2637947A008E8D92 /* TravelDetailRouter.swift */,
+				C78115EB2637947A008E8D92 /* TravelDetailViewController.swift */,
+				C78115EC2637947A008E8D92 /* TravelDetailProtocols.swift */,
+				C78115ED2637947A008E8D92 /* TravelDetailInteractor.swift */,
+				C78115EE2637947A008E8D92 /* TravelDetailContainer.swift */,
+			);
+			path = "TravelDetail-Page";
+			sourceTree = "<group>";
+		};
 		C79FE6D02636E4D4003AAA91 /* Main-Page */ = {
 			isa = PBXGroup;
 			children = (
 				C79FE6D12636E4ED003AAA91 /* MainPresenter.swift */,
 				C79FE6D22636E4ED003AAA91 /* MainRouter.swift */,
-				C79FE6D32636E4ED003AAA91 /* MainViewController.swift */,
+				C79FE6D32636E4ED003AAA91 /* MainTabBarController.swift */,
 				C79FE6D42636E4ED003AAA91 /* MainProtocols.swift */,
 				C79FE6D52636E4ED003AAA91 /* MainInteractor.swift */,
 				C79FE6D62636E4ED003AAA91 /* MainContainer.swift */,
+				C764AB5326374BFA00C4331D /* Profile-Page */,
+				C764AB6126374C5300C4331D /* AddTravel-Page */,
+				C764AB36263749EE00C4331D /* Explore-Page */,
 			);
 			path = "Main-Page";
+			sourceTree = "<group>";
+		};
+		C79FE72E2637272A003AAA91 /* Registration-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C79FE72F26372743003AAA91 /* RegistrationPresenter.swift */,
+				C79FE73026372743003AAA91 /* RegistrationRouter.swift */,
+				C79FE73126372743003AAA91 /* RegistrationViewController.swift */,
+				C79FE73226372743003AAA91 /* RegistrationProtocols.swift */,
+				C79FE73326372743003AAA91 /* RegistrationInteractor.swift */,
+				C79FE73426372743003AAA91 /* RegistrationContainer.swift */,
+			);
+			path = "Registration-Page";
 			sourceTree = "<group>";
 		};
 		C7BFCE26260D42BE00AFADCC = {
@@ -143,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				C72375BA262E0B8D001DB744 /* Modules */,
+				C79FE74026374332003AAA91 /* utils.swift */,
 				C7BFCE32260D42BE00AFADCC /* AppDelegate.swift */,
 				C7BFCE34260D42BE00AFADCC /* SceneDelegate.swift */,
 				C7BFCE3B260D42C100AFADCC /* Assets.xcassets */,
@@ -269,20 +444,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C764AB8826374DD500C4331D /* AddTravelProtocols.swift in Sources */,
+				C764AB8526374DD500C4331D /* AddTravelPresenter.swift in Sources */,
+				C78115F22637947A008E8D92 /* TravelDetailProtocols.swift in Sources */,
+				C764AB5126374B9A00C4331D /* ExploreContainer.swift in Sources */,
+				C764AB952637530F00C4331D /* ProfileSettingsPresenter.swift in Sources */,
+				C79FE73826372743003AAA91 /* RegistrationProtocols.swift in Sources */,
+				C79FE73926372743003AAA91 /* RegistrationInteractor.swift in Sources */,
+				C764AB4F26374B9A00C4331D /* ExploreProtocols.swift in Sources */,
 				C72375C4262E0BC1001DB744 /* LoginViewController.swift in Sources */,
 				C79FE6DC2636E4ED003AAA91 /* MainContainer.swift in Sources */,
+				C78115F42637947A008E8D92 /* TravelDetailContainer.swift in Sources */,
+				C764AB8926374DD500C4331D /* AddTravelInteractor.swift in Sources */,
+				C79FE73626372743003AAA91 /* RegistrationRouter.swift in Sources */,
+				C764AB4D26374B9A00C4331D /* ExploreRouter.swift in Sources */,
 				C72375C5262E0BC1001DB744 /* LoginProtocols.swift in Sources */,
+				C764AB8726374DD500C4331D /* AddTravelViewController.swift in Sources */,
+				C764AB5026374B9A00C4331D /* ExploreInteractor.swift in Sources */,
+				C764AB992637530F00C4331D /* ProfileSettingsInteractor.swift in Sources */,
+				C764AB5A26374C0A00C4331D /* ProfilePresenter.swift in Sources */,
+				C764AB8A26374DD500C4331D /* AddTravelContainer.swift in Sources */,
+				C764AB4C26374B9A00C4331D /* ExplorePresenter.swift in Sources */,
+				C78115EF2637947A008E8D92 /* TravelDetailPresenter.swift in Sources */,
+				C764AB8626374DD500C4331D /* AddTravelRouter.swift in Sources */,
+				C78115F02637947A008E8D92 /* TravelDetailRouter.swift in Sources */,
+				C764AB5C26374C0A00C4331D /* ProfileViewController.swift in Sources */,
 				C72375C2262E0BC1001DB744 /* LoginPresenter.swift in Sources */,
 				C79FE6DA2636E4ED003AAA91 /* MainProtocols.swift in Sources */,
-				C79FE6D92636E4ED003AAA91 /* MainViewController.swift in Sources */,
+				C78115B02637699D008E8D92 /* TravelCollectionViewCell.swift in Sources */,
+				C79FE6D92636E4ED003AAA91 /* MainTabBarController.swift in Sources */,
 				C79FE6DB2636E4ED003AAA91 /* MainInteractor.swift in Sources */,
-				C72375E8262E4067001DB744 /* RegistrationViewController.swift in Sources */,
 				C72375C7262E0BC1001DB744 /* LoginContainer.swift in Sources */,
+				C764AB9A2637530F00C4331D /* ProfileSettingsContainer.swift in Sources */,
+				C79FE73526372743003AAA91 /* RegistrationPresenter.swift in Sources */,
 				C79FE6D72636E4ED003AAA91 /* MainPresenter.swift in Sources */,
+				C79FE73726372743003AAA91 /* RegistrationViewController.swift in Sources */,
 				C72375C6262E0BC1001DB744 /* LoginInteractor.swift in Sources */,
+				C79FE74126374332003AAA91 /* utils.swift in Sources */,
+				C764AB5F26374C0A00C4331D /* ProfileContainer.swift in Sources */,
+				C764AB972637530F00C4331D /* ProfileSettingsViewController.swift in Sources */,
+				C78115F32637947A008E8D92 /* TravelDetailInteractor.swift in Sources */,
+				C764AB5B26374C0A00C4331D /* ProfileRouter.swift in Sources */,
+				C78115F12637947A008E8D92 /* TravelDetailViewController.swift in Sources */,
+				C764AB982637530F00C4331D /* ProfileSettingsProtocols.swift in Sources */,
 				C7BFCE33260D42BE00AFADCC /* AppDelegate.swift in Sources */,
 				C72375C3262E0BC1001DB744 /* LoginRouter.swift in Sources */,
+				C764AB5D26374C0A00C4331D /* ProfileProtocols.swift in Sources */,
+				C764AB962637530F00C4331D /* ProfileSettingsRouter.swift in Sources */,
+				C764AB4E26374B9A00C4331D /* ExploreViewController.swift in Sources */,
 				C79FE6D82636E4ED003AAA91 /* MainRouter.swift in Sources */,
+				C79FE73A26372743003AAA91 /* RegistrationContainer.swift in Sources */,
+				C764AB5E26374C0A00C4331D /* ProfileInteractor.swift in Sources */,
 				C7BFCE35260D42BE00AFADCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = uTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,6 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = uTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

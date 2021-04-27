@@ -1,0 +1,22 @@
+{
+  "data" : [
+    {
+      "idiom" : "universal"
+    },
+    {
+      "compression-type" : "none",
+      "filename" : "search.svg",
+      "idiom" : "universal",
+      "memory" : "1GB",
+      "universal-type-identifier" : "public.svg-image"
+    },
+    {
+      "idiom" : "universal",
+      "memory" : "2GB"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

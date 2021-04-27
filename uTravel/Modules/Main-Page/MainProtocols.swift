@@ -15,10 +15,10 @@ protocol MainModuleInput {
 protocol MainModuleOutput: class {
 }
 
-protocol MainViewInput: class {
+protocol MainTabBarControllerInput: class {
 }
 
-protocol MainViewOutput: class {
+protocol MainTabBarControllerOutput: class {
 }
 
 protocol MainInteractorInput: class {

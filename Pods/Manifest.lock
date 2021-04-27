@@ -357,6 +357,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PinLayout (1.9.3)
   - PromisesObjC (1.2.12)
+  - SwiftSVG (2.3.2)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -364,6 +365,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - PinLayout
+  - SwiftSVG
 
 SPEC REPOS:
   trunk:
@@ -387,6 +389,7 @@ SPEC REPOS:
     - nanopb
     - PinLayout
     - PromisesObjC
+    - SwiftSVG
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -409,7 +412,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PinLayout: 4d8733121f8687edcc8f00c19bf1379d12808767
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SwiftSVG: ca7f64e403b8ea7ea8eba8c823b83ba4a059834c
 
-PODFILE CHECKSUM: 68c9f78c7f43a58ad561de0467a645c9d7679cd8
+PODFILE CHECKSUM: 85144411d288de37904b72a380d811e0efd28eba
 
 COCOAPODS: 1.10.1

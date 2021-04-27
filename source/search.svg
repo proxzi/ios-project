@@ -1,0 +1,15 @@
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Explore" transform="translate(-315.000000, -133.000000)">
+            <g id="Search-bar" transform="translate(20.000000, 133.000000)">
+                <g id="icon" transform="translate(295.000000, 0.000000)">
+                    <path d="M7,0 L33,0 C36.8659932,-7.10171439e-16 40,3.13400675 40,7 L40,33 C40,36.8659932 36.8659932,40 33,40 L7,40 C3.13400675,40 4.73447626e-16,36.8659932 0,33 L0,7 C-4.73447626e-16,3.13400675 3.13400675,7.10171439e-16 7,0 Z" id="BG" fill="#FF7D0D"></path>
+                    <g transform="translate(13.000000, 13.000000)" id="Vector" stroke="#FFFFFF" stroke-dasharray="0,0" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                        <path d="M6.22222471,12.4444494 C2.78578472,12.4444494 0,9.6586647 0,6.22222471 C0,2.78578472 2.78578472,0 6.22222471,0 C9.6586647,0 12.4444494,2.78578472 12.4444494,6.22222471 C12.4444494,9.6586647 9.6586647,12.4444494 6.22222471,12.4444494 Z"></path>
+                        <line x1="14.0000341" y1="14.0000951" x2="10.6166992" y2="10.6167603"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
