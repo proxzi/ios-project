@@ -11,8 +11,16 @@ import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
+    private var initialViewController: UIViewController {
+        if(Auth.auth().currentUser == nil) {
+            let container = LoginContainer.assemble(with: LoginContext())
+            return UINavigationController(rootViewController: container.logViewController)
+        }
+        let container = MainContainer.assemble(with: MainContext())
+        return container.tabBarController
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -23,11 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let window = UIWindow(windowScene: windowScene)
             
-            let container = LoginContainer.assemble(with: LoginContext())
-            window.rootViewController = UINavigationController(rootViewController: container.logViewController)
+            
+            
+            window.rootViewController = initialViewController
             self.window = window
             window.makeKeyAndVisible()
-        }        
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -35,12 +44,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-        do {
-            try Auth.auth().signOut()
-        }
-        catch {
-            print("An error occurred")
-        }
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

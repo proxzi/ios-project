@@ -10,25 +10,25 @@ import UIKit
 
 final class MainContainer {
     let input: MainModuleInput
-	let viewController: UIViewController
+	let tabBarController: UITabBarController
 	private(set) weak var router: MainRouterInput!
 
 	class func assemble(with context: MainContext) -> MainContainer {
         let router = MainRouter()
         let interactor = MainInteractor()
         let presenter = MainPresenter(router: router, interactor: interactor)
-		let viewController = MainViewController(output: presenter)
+		let tabBarController = MainTabBarController(output: presenter)
 
-		presenter.view = viewController
+		presenter.view = tabBarController
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
 
-        return MainContainer(view: viewController, input: presenter, router: router)
+        return MainContainer(tabBar: tabBarController, input: presenter, router: router)
 	}
 
-    private init(view: UIViewController, input: MainModuleInput, router: MainRouterInput) {
-		self.viewController = view
+    private init(tabBar: UITabBarController, input: MainModuleInput, router: MainRouterInput) {
+		self.tabBarController = tabBar
         self.input = input
 		self.router = router
 	}
