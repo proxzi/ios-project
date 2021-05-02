@@ -23,8 +23,7 @@ final class ExploreViewController: UIViewController {
     private let findTextField = UITextField()
     private let searchGroup = UIView()
     
-    private let searchView = UIView(SVGNamed: "search")
-    private let groupTableView = UIView()
+    private let searchImageView = UIImageView(image: UIImage(named: "search"))
     
     
     init(output: ExploreViewOutput) {
@@ -45,16 +44,16 @@ final class ExploreViewController: UIViewController {
                                                             action: #selector(didTapAddTravelButton))
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        title = "Explore"
+        title = "Исследовать"
         view.backgroundColor = .white
         
         collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(TravelCollectionViewCell.self, forCellWithReuseIdentifier: "TravelCollectionViewCell")
+        collectionView.register(TravelCollectionViewExploreCell.self, forCellWithReuseIdentifier: "TravelCollectionViewExploreCell")
         
         
-        searchView.backgroundColor = .white
+        searchImageView.backgroundColor = .white
         
         findTextField.placeholder = "Найти поездку..."
         findTextField.layer.borderColor = UIColor(red: 238/255,
@@ -67,7 +66,7 @@ final class ExploreViewController: UIViewController {
         findTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
         
         searchGroup.isUserInteractionEnabled = true
-        [findTextField, searchView].forEach{ searchGroup.addSubview($0)}
+        [findTextField, searchImageView].forEach{ searchGroup.addSubview($0)}
         [searchGroup, collectionView].forEach{ view.addSubview($0)}
 	}
     
@@ -81,13 +80,13 @@ final class ExploreViewController: UIViewController {
             .height(40)
             .width(275)
             .left()
-        searchView.pin.after(of: findTextField)
+        searchImageView.pin.after(of: findTextField)
             .sizeToFit()
             .marginLeft(20)
         collectionView.pin
             .below(of: searchGroup)
             .marginTop(30)
-            .horizontally(20)
+            .horizontally()
             .height(65%)
         
     }
@@ -105,7 +104,7 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TravelCollectionViewCell", for: indexPath) as? TravelCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TravelCollectionViewExploreCell", for: indexPath) as? TravelCollectionViewExploreCell else {
             return .init()
         }
         

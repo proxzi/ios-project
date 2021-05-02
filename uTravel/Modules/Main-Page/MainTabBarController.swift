@@ -28,15 +28,15 @@ final class MainTabBarController: UITabBarController {
         
         let exploreContainer = ExploreContainer.assemble(with: ExploreContext())
         let explorePage = UINavigationController(rootViewController: exploreContainer.viewController)
-        explorePage.title = "Explore"
+        explorePage.title = "Исследовать"
         
         let addTravelContainer = AddTravelContainer.assemble(with: AddTravelContext())
         let addTravelPage = UINavigationController(rootViewController: addTravelContainer.viewController)
-        addTravelPage.title = "Add"
+        addTravelPage.title = "Добавить"
 
         let profileContainer = ProfileContainer.assemble(with: ProfileContext())
         let profilePage = UINavigationController(rootViewController: profileContainer.viewController)
-        profilePage.title = "Profile"
+        profilePage.title = "Профиль"
         
         
         setViewControllers([explorePage, addTravelPage, profilePage], animated: true)

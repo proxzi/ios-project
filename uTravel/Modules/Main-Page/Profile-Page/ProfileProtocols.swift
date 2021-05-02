@@ -20,6 +20,7 @@ protocol ProfileViewInput: class {
 
 protocol ProfileViewOutput: class {
     func didTapSettingsButton()
+    func didSelectItemCollection()
 }
 
 protocol ProfileInteractorInput: class {
@@ -30,4 +31,5 @@ protocol ProfileInteractorOutput: class {
 
 protocol ProfileRouterInput: class {
     func openProfileSettings()
+    func openTravelDetail()
 }

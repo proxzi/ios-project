@@ -15,6 +15,7 @@
 		C72375C6262E0BC1001DB744 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72375C0262E0BC1001DB744 /* LoginInteractor.swift */; };
 		C72375C7262E0BC1001DB744 /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72375C1262E0BC1001DB744 /* LoginContainer.swift */; };
 		C72375E4262E3DAB001DB744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72375E3262E3DAB001DB744 /* Main.storyboard */; };
+		C7239749263F341E00F5DB0E /* TravelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7239748263F341E00F5DB0E /* TravelCollectionViewCell.swift */; };
 		C764AB4C26374B9A00C4331D /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4626374B9A00C4331D /* ExplorePresenter.swift */; };
 		C764AB4D26374B9A00C4331D /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4726374B9A00C4331D /* ExploreRouter.swift */; };
 		C764AB4E26374B9A00C4331D /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4826374B9A00C4331D /* ExploreViewController.swift */; };
@@ -39,7 +40,7 @@
 		C764AB982637530F00C4331D /* ProfileSettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB922637530F00C4331D /* ProfileSettingsProtocols.swift */; };
 		C764AB992637530F00C4331D /* ProfileSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB932637530F00C4331D /* ProfileSettingsInteractor.swift */; };
 		C764AB9A2637530F00C4331D /* ProfileSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB942637530F00C4331D /* ProfileSettingsContainer.swift */; };
-		C78115B02637699D008E8D92 /* TravelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115AF2637699D008E8D92 /* TravelCollectionViewCell.swift */; };
+		C78115B02637699D008E8D92 /* TravelCollectionViewExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115AF2637699D008E8D92 /* TravelCollectionViewExploreCell.swift */; };
 		C78115EF2637947A008E8D92 /* TravelDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115E92637947A008E8D92 /* TravelDetailPresenter.swift */; };
 		C78115F02637947A008E8D92 /* TravelDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115EA2637947A008E8D92 /* TravelDetailRouter.swift */; };
 		C78115F12637947A008E8D92 /* TravelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78115EB2637947A008E8D92 /* TravelDetailViewController.swift */; };
@@ -76,6 +77,7 @@
 		C72375C0262E0BC1001DB744 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		C72375C1262E0BC1001DB744 /* LoginContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainer.swift; sourceTree = "<group>"; };
 		C72375E3262E3DAB001DB744 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C7239748263F341E00F5DB0E /* TravelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCollectionViewCell.swift; sourceTree = "<group>"; };
 		C764AB4626374B9A00C4331D /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		C764AB4726374B9A00C4331D /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
 		C764AB4826374B9A00C4331D /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +102,7 @@
 		C764AB922637530F00C4331D /* ProfileSettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsProtocols.swift; sourceTree = "<group>"; };
 		C764AB932637530F00C4331D /* ProfileSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsInteractor.swift; sourceTree = "<group>"; };
 		C764AB942637530F00C4331D /* ProfileSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsContainer.swift; sourceTree = "<group>"; };
-		C78115AF2637699D008E8D92 /* TravelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCollectionViewCell.swift; sourceTree = "<group>"; };
+		C78115AF2637699D008E8D92 /* TravelCollectionViewExploreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCollectionViewExploreCell.swift; sourceTree = "<group>"; };
 		C78115E92637947A008E8D92 /* TravelDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailPresenter.swift; sourceTree = "<group>"; };
 		C78115EA2637947A008E8D92 /* TravelDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailRouter.swift; sourceTree = "<group>"; };
 		C78115EB2637947A008E8D92 /* TravelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailViewController.swift; sourceTree = "<group>"; };
@@ -181,10 +183,17 @@
 			path = "Login-Page";
 			sourceTree = "<group>";
 		};
+		C7239747263F33FE00F5DB0E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C7239748263F341E00F5DB0E /* TravelCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C764AB36263749EE00C4331D /* Explore-Page */ = {
 			isa = PBXGroup;
 			children = (
-				C78115E82637945C008E8D92 /* TravelDetail-Page */,
 				C78115AD2637696C008E8D92 /* Cell */,
 				C764AB4626374B9A00C4331D /* ExplorePresenter.swift */,
 				C764AB4726374B9A00C4331D /* ExploreRouter.swift */,
@@ -199,6 +208,7 @@
 		C764AB5326374BFA00C4331D /* Profile-Page */ = {
 			isa = PBXGroup;
 			children = (
+				C7239747263F33FE00F5DB0E /* Cell */,
 				C764AB8E263752F100C4331D /* Profile-Settings-Page */,
 				C764AB5426374C0A00C4331D /* ProfilePresenter.swift */,
 				C764AB5526374C0A00C4331D /* ProfileRouter.swift */,
@@ -248,7 +258,7 @@
 		C78115AD2637696C008E8D92 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C78115AF2637699D008E8D92 /* TravelCollectionViewCell.swift */,
+				C78115AF2637699D008E8D92 /* TravelCollectionViewExploreCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -275,6 +285,7 @@
 				C79FE6D42636E4ED003AAA91 /* MainProtocols.swift */,
 				C79FE6D52636E4ED003AAA91 /* MainInteractor.swift */,
 				C79FE6D62636E4ED003AAA91 /* MainContainer.swift */,
+				C78115E82637945C008E8D92 /* TravelDetail-Page */,
 				C764AB5326374BFA00C4331D /* Profile-Page */,
 				C764AB6126374C5300C4331D /* AddTravel-Page */,
 				C764AB36263749EE00C4331D /* Explore-Page */,
@@ -466,12 +477,13 @@
 				C764AB8A26374DD500C4331D /* AddTravelContainer.swift in Sources */,
 				C764AB4C26374B9A00C4331D /* ExplorePresenter.swift in Sources */,
 				C78115EF2637947A008E8D92 /* TravelDetailPresenter.swift in Sources */,
+				C7239749263F341E00F5DB0E /* TravelCollectionViewCell.swift in Sources */,
 				C764AB8626374DD500C4331D /* AddTravelRouter.swift in Sources */,
 				C78115F02637947A008E8D92 /* TravelDetailRouter.swift in Sources */,
 				C764AB5C26374C0A00C4331D /* ProfileViewController.swift in Sources */,
 				C72375C2262E0BC1001DB744 /* LoginPresenter.swift in Sources */,
 				C79FE6DA2636E4ED003AAA91 /* MainProtocols.swift in Sources */,
-				C78115B02637699D008E8D92 /* TravelCollectionViewCell.swift in Sources */,
+				C78115B02637699D008E8D92 /* TravelCollectionViewExploreCell.swift in Sources */,
 				C79FE6D92636E4ED003AAA91 /* MainTabBarController.swift in Sources */,
 				C79FE6DB2636E4ED003AAA91 /* MainInteractor.swift in Sources */,
 				C72375C7262E0BC1001DB744 /* LoginContainer.swift in Sources */,

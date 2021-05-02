@@ -28,6 +28,10 @@ extension ProfilePresenter: ProfileViewOutput {
     func didTapSettingsButton() {
         router.openProfileSettings()
     }
+    
+    func didSelectItemCollection() {
+        router.openTravelDetail()
+    }
 }
 
 extension ProfilePresenter: ProfileInteractorOutput {

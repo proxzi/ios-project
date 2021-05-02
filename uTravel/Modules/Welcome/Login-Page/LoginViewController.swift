@@ -117,6 +117,7 @@ final class LoginViewController: UIViewController {
         passwordEdit.layer.cornerRadius = 7
         passwordEdit.layer.masksToBounds = true
         passwordEdit.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        passwordEdit.isSecureTextEntry = true
         
         loginButton.setTitle("Войти", for: .normal)
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)

@@ -48,8 +48,11 @@ final class RegistrationViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+//        navigationItem.backBarButtonItem?.tintColor = UIColor(red: 102/255,
+//                                                                         green: 102/255,
+//                                                                         blue: 102/255,
+//                                                                         alpha: 1)
+//        navigationItem.backBarButtonItem?.title = "Назад"
         headLabel.text = "Регистрация"
         headLabel.textAlignment = .center
         headLabel.font = UIFont.systemFont(ofSize: 38, weight: .regular)
@@ -108,6 +111,7 @@ final class RegistrationViewController: UIViewController {
         passwordEdit.layer.cornerRadius = 7
         passwordEdit.layer.masksToBounds = true
         passwordEdit.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        passwordEdit.isSecureTextEntry = true
         
         
         
@@ -128,7 +132,7 @@ final class RegistrationViewController: UIViewController {
         repeatPasswordEdit.layer.cornerRadius = 7
         repeatPasswordEdit.layer.masksToBounds = true
         repeatPasswordEdit.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
-        
+        repeatPasswordEdit.isSecureTextEntry = true
         
         regButton.setTitle("Зарегистрироваться", for: .normal)
         regButton.addTarget(self, action: #selector(didTapRegButton), for: .touchUpInside)

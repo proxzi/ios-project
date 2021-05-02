@@ -9,7 +9,7 @@ import UIKit
 import SwiftSVG
 import PinLayout
 
-class TravelCollectionViewCell: UICollectionViewCell {
+class TravelCollectionViewExploreCell: UICollectionViewCell {
     private let titleLabel = UILabel()
     private let iconImageView = UIImageView()
     private let locationView = UIView(SVGNamed: "location")
@@ -32,16 +32,16 @@ class TravelCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup() {
-        titleLabel.text = "Winter in Portugal"
+        titleLabel.text = "Зима в Португалии"
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         
-        dateLabel.text = "7 days"
+        dateLabel.text = "7 дней"
         dateLabel.textAlignment = .center
         dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
         dateLabel.textColor = .black
         
-        seasonLabel.text = "winter"
+        seasonLabel.text = "Зима"
         seasonLabel.textAlignment = .center
         seasonLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
         seasonLabel.textColor = .black
@@ -52,7 +52,7 @@ class TravelCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = .white
         
         
-        locationLabel.text = "Lisabon"
+        locationLabel.text = "Португалия, Лиссабон"
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         locationLabel.textColor = UIColor(red: 170/255,
                                           green: 170/255,
@@ -111,7 +111,7 @@ class TravelCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        
         iconImageView.pin
             .vCenter()
             .left(15)
@@ -130,11 +130,12 @@ class TravelCollectionViewCell: UICollectionViewCell {
             .marginTop(4)
         
         locationLabel.pin
-            .sizeToFit()
+            .width(130)
+            .height(20)
             .after(of: locationView)
             .below(of: titleLabel)
             .marginLeft(18)
-            .marginTop(4)
+            //.marginTop(4)
         
         dateView.pin
             .after(of: iconImageView)
