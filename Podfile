@@ -12,4 +12,6 @@ target 'uTravel' do
 	pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
 	pod 'SwiftSVG'
+	pod 'Cosmos'
+	pod 'KMPlaceholderTextView'
 end
