@@ -16,6 +16,13 @@
 		C72375C7262E0BC1001DB744 /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72375C1262E0BC1001DB744 /* LoginContainer.swift */; };
 		C72375E4262E3DAB001DB744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72375E3262E3DAB001DB744 /* Main.storyboard */; };
 		C7239749263F341E00F5DB0E /* TravelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7239748263F341E00F5DB0E /* TravelCollectionViewCell.swift */; };
+		C72858DD266171E600C63905 /* LocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858D7266171E600C63905 /* LocationPresenter.swift */; };
+		C72858DE266171E600C63905 /* LocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858D8266171E600C63905 /* LocationRouter.swift */; };
+		C72858DF266171E600C63905 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858D9266171E600C63905 /* LocationViewController.swift */; };
+		C72858E0266171E600C63905 /* LocationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858DA266171E600C63905 /* LocationProtocols.swift */; };
+		C72858E1266171E600C63905 /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858DB266171E600C63905 /* LocationInteractor.swift */; };
+		C72858E2266171E600C63905 /* LocationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858DC266171E600C63905 /* LocationContainer.swift */; };
+		C72858E726617F4600C63905 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72858E626617F4600C63905 /* SearchResultsController.swift */; };
 		C764AB4C26374B9A00C4331D /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4626374B9A00C4331D /* ExplorePresenter.swift */; };
 		C764AB4D26374B9A00C4331D /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4726374B9A00C4331D /* ExploreRouter.swift */; };
 		C764AB4E26374B9A00C4331D /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764AB4826374B9A00C4331D /* ExploreViewController.swift */; };
@@ -102,6 +109,13 @@
 		C72375C1262E0BC1001DB744 /* LoginContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainer.swift; sourceTree = "<group>"; };
 		C72375E3262E3DAB001DB744 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C7239748263F341E00F5DB0E /* TravelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCollectionViewCell.swift; sourceTree = "<group>"; };
+		C72858D7266171E600C63905 /* LocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresenter.swift; sourceTree = "<group>"; };
+		C72858D8266171E600C63905 /* LocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRouter.swift; sourceTree = "<group>"; };
+		C72858D9266171E600C63905 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		C72858DA266171E600C63905 /* LocationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocols.swift; sourceTree = "<group>"; };
+		C72858DB266171E600C63905 /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
+		C72858DC266171E600C63905 /* LocationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationContainer.swift; sourceTree = "<group>"; };
+		C72858E626617F4600C63905 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		C764AB4626374B9A00C4331D /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		C764AB4726374B9A00C4331D /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
 		C764AB4826374B9A00C4331D /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +253,20 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		C72858D6266171C200C63905 /* Location-Page */ = {
+			isa = PBXGroup;
+			children = (
+				C72858D7266171E600C63905 /* LocationPresenter.swift */,
+				C72858D8266171E600C63905 /* LocationRouter.swift */,
+				C72858D9266171E600C63905 /* LocationViewController.swift */,
+				C72858DA266171E600C63905 /* LocationProtocols.swift */,
+				C72858DB266171E600C63905 /* LocationInteractor.swift */,
+				C72858DC266171E600C63905 /* LocationContainer.swift */,
+				C72858E626617F4600C63905 /* SearchResultsController.swift */,
+			);
+			path = "Location-Page";
+			sourceTree = "<group>";
+		};
 		C764AB36263749EE00C4331D /* Explore-Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +382,7 @@
 				C764AB5326374BFA00C4331D /* Profile-Page */,
 				C78115E82637945C008E8D92 /* TravelDetail-Page */,
 				C764AB6126374C5300C4331D /* AddTravel-Page */,
+				C72858D6266171C200C63905 /* Location-Page */,
 				C7A4B77126406C4F0082B9EA /* AddPlace-Page */,
 			);
 			path = MainTabBar;
@@ -472,6 +501,7 @@
 				C7BFCE2C260D42BE00AFADCC /* Frameworks */,
 				C7BFCE2D260D42BE00AFADCC /* Resources */,
 				2C1962FC67DE4B7553E79F36 /* [CP] Embed Pods Frameworks */,
+				8987F0118FBBDA7F0288C751 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -546,6 +576,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8987F0118FBBDA7F0288C751 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-uTravel/Pods-uTravel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B38FCEA145D1CC249039B487 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,16 +626,19 @@
 				C764AB8826374DD500C4331D /* AddTravelProtocols.swift in Sources */,
 				C764AB8526374DD500C4331D /* AddTravelPresenter.swift in Sources */,
 				C78115F22637947A008E8D92 /* TravelDetailProtocols.swift in Sources */,
+				C72858DE266171E600C63905 /* LocationRouter.swift in Sources */,
 				C764AB5126374B9A00C4331D /* ExploreContainer.swift in Sources */,
 				C764AB952637530F00C4331D /* ProfileSettingsPresenter.swift in Sources */,
 				C79FE73826372743003AAA91 /* RegistrationProtocols.swift in Sources */,
 				C79FE73926372743003AAA91 /* RegistrationInteractor.swift in Sources */,
+				C72858E2266171E600C63905 /* LocationContainer.swift in Sources */,
 				C764AB4F26374B9A00C4331D /* ExploreProtocols.swift in Sources */,
 				C72375C4262E0BC1001DB744 /* LoginViewController.swift in Sources */,
 				C7A4B76C26406C370082B9EA /* ChatInteractor.swift in Sources */,
 				C7A4B76B26406C360082B9EA /* ChatProtocols.swift in Sources */,
 				C7A4B75A26406B840082B9EA /* NotificationViewController.swift in Sources */,
 				C7A4B77D26406C6A0082B9EA /* AddPlaceContainer.swift in Sources */,
+				C72858DF266171E600C63905 /* LocationViewController.swift in Sources */,
 				C79FE6DC2636E4ED003AAA91 /* MainContainer.swift in Sources */,
 				C78115F42637947A008E8D92 /* TravelDetailContainer.swift in Sources */,
 				C764AB8926374DD500C4331D /* AddTravelInteractor.swift in Sources */,
@@ -604,6 +654,7 @@
 				C77E1419264310F30015B750 /* TravelPostViewModel.swift in Sources */,
 				C764AB5026374B9A00C4331D /* ExploreInteractor.swift in Sources */,
 				C764AB992637530F00C4331D /* ProfileSettingsInteractor.swift in Sources */,
+				C72858E1266171E600C63905 /* LocationInteractor.swift in Sources */,
 				C764AB5A26374C0A00C4331D /* ProfilePresenter.swift in Sources */,
 				C7A4B77C26406C6A0082B9EA /* AddPlaceInteractor.swift in Sources */,
 				C7A4B76926406C360082B9EA /* ChatRouter.swift in Sources */,
@@ -612,6 +663,7 @@
 				C7A4B75C26406B840082B9EA /* NotificationInteractor.swift in Sources */,
 				C78115EF2637947A008E8D92 /* TravelDetailPresenter.swift in Sources */,
 				C7239749263F341E00F5DB0E /* TravelCollectionViewCell.swift in Sources */,
+				C72858E0266171E600C63905 /* LocationProtocols.swift in Sources */,
 				C7A4B75D26406B840082B9EA /* NotificationContainer.swift in Sources */,
 				C77E141C264337220015B750 /* ImageLoader.swift in Sources */,
 				C7A4B75826406B840082B9EA /* NotificationPresenter.swift in Sources */,
@@ -622,6 +674,7 @@
 				C764AB5C26374C0A00C4331D /* ProfileViewController.swift in Sources */,
 				C72375C2262E0BC1001DB744 /* LoginPresenter.swift in Sources */,
 				C79FE6DA2636E4ED003AAA91 /* MainProtocols.swift in Sources */,
+				C72858E726617F4600C63905 /* SearchResultsController.swift in Sources */,
 				C78115B02637699D008E8D92 /* TravelCollectionViewExploreCell.swift in Sources */,
 				C79FE6D92636E4ED003AAA91 /* MainTabBarController.swift in Sources */,
 				C79FE6DB2636E4ED003AAA91 /* MainInteractor.swift in Sources */,
@@ -648,6 +701,7 @@
 				C764AB962637530F00C4331D /* ProfileSettingsRouter.swift in Sources */,
 				C764AB4E26374B9A00C4331D /* ExploreViewController.swift in Sources */,
 				C79FE6D82636E4ED003AAA91 /* MainRouter.swift in Sources */,
+				C72858DD266171E600C63905 /* LocationPresenter.swift in Sources */,
 				C79FE73A26372743003AAA91 /* RegistrationContainer.swift in Sources */,
 				C764AB5E26374C0A00C4331D /* ProfileInteractor.swift in Sources */,
 				C7BFCE35260D42BE00AFADCC /* SceneDelegate.swift in Sources */,

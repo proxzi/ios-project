@@ -14,4 +14,6 @@ target 'uTravel' do
 	pod 'SwiftSVG'
 	pod 'Cosmos'
 	pod 'KMPlaceholderTextView'
+	pod 'GoogleMaps'
+	pod 'GooglePlaces'
 end

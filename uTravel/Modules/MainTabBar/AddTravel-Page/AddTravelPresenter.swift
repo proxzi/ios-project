@@ -25,7 +25,9 @@ extension AddTravelPresenter: AddTravelModuleInput {
 }
 
 extension AddTravelPresenter: AddTravelViewOutput {
-
+    func didTapLocationLabel() {
+        router.openLocationPage()
+    }
     
     func didTapHeadImageView() {
         router.showImagePicker(output: self)

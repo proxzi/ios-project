@@ -95,9 +95,13 @@ final class AddTravelViewController: UIViewController {
         titleTextField.layer.masksToBounds = true
         titleTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
         
+        let gestureRecognizerLocal = UITapGestureRecognizer(target: self, action: #selector(didTapLocationLabel))
+        
         locationLabel.text = "Добавить город"
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         locationLabel.textColor = .black
+        locationLabel.addGestureRecognizer(gestureRecognizerLocal)
+        locationLabel.isUserInteractionEnabled = true
         
         seasonTextField.placeholder = "Cезон поездки..."
         seasonTextField.text = "Не выбрано"
@@ -174,6 +178,11 @@ final class AddTravelViewController: UIViewController {
     @objc
     func didTapHeadImageView() {
         output.didTapHeadImageView()
+    }
+    
+    @objc
+    func didTapLocationLabel() {
+        output.didTapLocationLabel()
     }
 }
 

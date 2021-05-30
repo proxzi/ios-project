@@ -15,6 +15,11 @@ final class AddTravelRouter {
 }
 
 extension AddTravelRouter: AddTravelRouterInput {
+    func openLocationPage() {
+        let container = LocationContainer.assemble(with: LocationContext())
+        self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
     func openAddPlace() {
         let container = AddPlaceContainer.assemble(with: AddPlaceContext())
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)

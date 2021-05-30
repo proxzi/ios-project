@@ -23,6 +23,7 @@ protocol AddTravelViewOutput: class {
     func didTapDoneBarButton(travels: Travel)
     func didSelectItemCollection(index: Int)
     func didTapHeadImageView()
+    func didTapLocationLabel()
 }
 
 protocol AddTravelInteractorInput: class {
@@ -36,5 +37,6 @@ protocol AddTravelInteractorOutput: class {
 
 protocol AddTravelRouterInput: class {
     func openAddPlace()
+    func openLocationPage()
     func showImagePicker(output: ImagePickerOutput)
 }
