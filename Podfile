@@ -11,9 +11,8 @@ target 'uTravel' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
+	pod 'Firebase/Database'
 	pod 'SwiftSVG'
 	pod 'Cosmos'
 	pod 'KMPlaceholderTextView'
-	pod 'GoogleMaps'
-	pod 'GooglePlaces'
 end

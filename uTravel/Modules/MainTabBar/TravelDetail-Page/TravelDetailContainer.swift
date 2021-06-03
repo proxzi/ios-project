@@ -23,10 +23,11 @@ final class TravelDetailContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
-
+        
+        
         return TravelDetailContainer(view: viewController, input: presenter, router: router)
 	}
-
+    
     private init(view: UIViewController, input: TravelDetailModuleInput, router: TravelDetailRouterInput) {
 		self.viewController = view
         self.input = input

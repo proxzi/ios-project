@@ -19,12 +19,12 @@ protocol RegistrationViewInput: class {
 }
 
 protocol RegistrationViewOutput: class {
-    func didTapRegButton(email: String, password: String)
+    func didTapRegButton(user: UserData, password: String)
 }
 
 protocol RegistrationInteractorInput: class {
     
-    func createUser(withEmail: String, password: String)
+    func createUser(user: UserData, password: String)
 }
 
 protocol RegistrationInteractorOutput: class {

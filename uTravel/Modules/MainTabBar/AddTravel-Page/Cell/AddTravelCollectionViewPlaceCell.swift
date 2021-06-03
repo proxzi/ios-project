@@ -56,4 +56,9 @@ class AddTravelCollectionViewPlaceCell: UICollectionViewCell {
     func configure(with name: String) {
         iconImageView.image = UIImage(named: name)
     }
+    
+    func configure(with place: Place){
+        iconImageView.image = place.image
+        
+    }
 }

@@ -13,6 +13,7 @@ final class RegistrationRouter {
 
 extension RegistrationRouter: RegistrationRouterInput {
     func openMain() {
-        
+        let container = MainContainer.assemble(with: MainContext())
+        Coordinator.rootVC(vc: container.tabBarController)
     }
 }

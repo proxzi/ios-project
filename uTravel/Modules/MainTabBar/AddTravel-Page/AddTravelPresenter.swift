@@ -25,27 +25,49 @@ extension AddTravelPresenter: AddTravelModuleInput {
 }
 
 extension AddTravelPresenter: AddTravelViewOutput {
-    func didTapLocationLabel() {
-        router.openLocationPage()
+    func didSelectItemCollection(index: Int) {
+        router.openAddPlace(index: index)
+    }
+    
+    func didSelectItemCollection(place: Place, index: Int) {
+        router.openEditPlace(place: place)
+    }
+    
+    func didloadPlaces() {
+        interactor.loadPlaces()
+    }
+    
+    
+    func didTapLocationLabel(location: String) {
+        router.openLocationPage(location: location)
     }
     
     func didTapHeadImageView() {
         router.showImagePicker(output: self)
     }
     
-    func didSelectItemCollection(index: Int) {
-        if index == 0 {
-            router.openAddPlace()
-        }
-    }
+
     
-    func didTapDoneBarButton(travels: Travel) {
-        interactor.saveTravel()
+    func didTapDoneBarButton(trip: Trip, places: Array<Place>) {
+        interactor.saveTrip(trip: trip, places: places)
+        
     }
     
 }
 
 extension AddTravelPresenter: AddTravelInteractorOutput {
+    func reloadData(place: Place, index: Int) {
+        view?.reloadData(place: place, index: index)
+    }
+    
+    func loadedPlaces(places: Array<Place>) {
+        view?.loadedPlaces(places: places)
+    }
+    
+    func didSuccessfulSaveData() {
+        view?.didSuccessfulSaveData()
+    }
+    
     func didReceive(error: Error) {
         // show error
     }

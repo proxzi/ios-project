@@ -20,12 +20,15 @@ final class AddPlaceViewController: UIViewController {
     private let headImageView = UIImageView()
     private let headIconImageView = UIImageView()
     private let ratingLabel = UILabel()
-    private let descriptionLabel = UILabel()
     private let starsView = UIView()
+    private let descriptionLabel = UILabel()
     private let descriptionTextView = KMPlaceholderTextView()
     private let classPlaceHeadLabel = UILabel()
     private let classPlaceTextField = UITextField()
     private let classPlaceToolBar = UIToolbar()
+    
+    static var place: Place!
+    static var idPlace = 0
     
     
     private let classPlaces = ["Не выбрано", "Ресторан", "Музей", "Кафе", "Достопримечательность"]
@@ -33,7 +36,7 @@ final class AddPlaceViewController: UIViewController {
     
     lazy var cosmosView: CosmosView = {
         var view = CosmosView()
-        view.rating = 5.0
+        view.rating = 0.0
         return view
     }()
     
@@ -94,7 +97,7 @@ final class AddPlaceViewController: UIViewController {
         headImageView.layer.masksToBounds = true
         
         
-        titleLabel.text = "Название(место с карты)"
+        titleLabel.text = "Выбрать место"
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         titleLabel.textColor = .black
         
@@ -196,7 +199,7 @@ final class AddPlaceViewController: UIViewController {
             .below(of: classPlaceHeadLabel)
             .left(10)
             .marginTop(5)
-            .width(150)
+            .width(180)
             .height(25)
         descriptionLabel.pin
             .below(of: classPlaceTextField)
@@ -220,6 +223,40 @@ final class AddPlaceViewController: UIViewController {
     @objc
     func didTapAddBarButton() {
         
+        guard let title = titleLabel.text, !title.isEmpty else {
+            print("empty or not valid title")
+            return
+        }
+        guard let image = headImageView.image else {
+            print("not image")
+            return
+        }
+        let rating = cosmosView.rating
+        if rating == 0.0
+        {
+            print("rating = 0")
+            return
+        }
+        guard let description = descriptionTextView.text, !description.isEmpty else {
+            print("empty or not valid description")
+            return
+        }
+        guard let classPlace = classPlaceTextField.text, !classPlace.isEmpty else {
+            print("empty or not valid classPlace")
+            return
+        }
+        
+        let place = Place(id: AddPlaceViewController.idPlace, title: title, image: image, rating: Int(rating), description: description, classPlace: classPlace)
+        AddTravelViewController.placesFromAddPlaceVC.append(place)
+        //output.didTapDoneBarButton(place: place)
+        AddPlaceViewController.idPlace = 0
+        didSuccessfulSaveData()
+//        loadingVC.modalPresentationStyle = .overCurrentContext
+//        loadingVC.modalTransitionStyle = .crossDissolve
+//        present(loadingVC, animated: true, completion: nil)
+        
+        //
+
     }
 }
 
@@ -248,6 +285,11 @@ extension AddPlaceViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 
 extension AddPlaceViewController: AddPlaceViewInput {
+    func didSuccessfulSaveData() {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
     func downloadHeadImage(image: UIImage?) {
         headIconImageView.isHidden = true
         headImageView.image = image

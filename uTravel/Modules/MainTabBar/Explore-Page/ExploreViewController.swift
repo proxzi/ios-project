@@ -69,6 +69,12 @@ final class ExploreViewController: UIViewController {
         [searchGroup, collectionView].forEach{ view.addSubview($0)}
 	}
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !AddTravelViewController.placesFromAddPlaceVC.isEmpty{
+            AddTravelViewController.placesFromAddPlaceVC.removeAll()
+        }
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchGroup.pin

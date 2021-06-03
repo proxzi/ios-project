@@ -12,6 +12,8 @@ import PinLayout
 final class RegistrationViewController: UIViewController {
 	private let output: RegistrationViewOutput
     
+    private let scrollView = UIScrollView()
+    
     private let logoImageView = UIImageView(image: UIImage(named: "logo"))
     private let headLabel = UILabel()
     private let formRegistrationView = UIView()
@@ -25,7 +27,12 @@ final class RegistrationViewController: UIViewController {
     private let repeatPasswordEdit = UITextField()
     private let regButton = UIButton()
     private let regButtonView = UIView()
-    private var sex = String()
+    private var sex = "Мужчина"
+    
+    private let nameLabel = UILabel()
+    private let surnameLabel = UILabel()
+    private let nameTextField = UITextField()
+    private let surnameTextField = UITextField()
     
     init(output: RegistrationViewOutput) {
         self.output = output
@@ -53,11 +60,15 @@ final class RegistrationViewController: UIViewController {
 //                                                                         blue: 102/255,
 //                                                                         alpha: 1)
 //        navigationItem.backBarButtonItem?.title = "Назад"
+        
+        scrollView.isUserInteractionEnabled = true
+        scrollView.isScrollEnabled = true
+        
         headLabel.text = "Регистрация"
         headLabel.textAlignment = .center
         headLabel.font = UIFont.systemFont(ofSize: 38, weight: .regular)
         
-        loginLabel.text = "Логин"
+        loginLabel.text = "Email"
         loginLabel.textAlignment = .center
         loginLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         loginLabel.textColor =  UIColor(red: 102/255,
@@ -92,7 +103,7 @@ final class RegistrationViewController: UIViewController {
         
         formRegistrationView.isUserInteractionEnabled = true
         
-        loginEdit.placeholder = "Логин"
+        loginEdit.placeholder = "Email"
         loginEdit.layer.borderColor = UIColor(red: 238/255,
                                               green: 238/255,
                                               blue: 238/255,
@@ -153,35 +164,108 @@ final class RegistrationViewController: UIViewController {
         regButtonView.layer.shadowOpacity = 0.8
         regButtonView.isUserInteractionEnabled = true
         
+        nameLabel.text = "Имя"
+        nameLabel.textAlignment = .center
+        nameLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        nameLabel.textColor =  UIColor(red: 102/255,
+                                           green: 102/255,
+                                           blue: 102/255,
+                                           alpha: 1)
         
+        surnameLabel.text = "Фамилия"
+        surnameLabel.textAlignment = .center
+        surnameLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        surnameLabel.textColor =  UIColor(red: 102/255,
+                                           green: 102/255,
+                                           blue: 102/255,
+                                           alpha: 1)
+        
+        nameTextField.placeholder = "Имя"
+        nameTextField.layer.borderColor = UIColor(red: 238/255,
+                                              green: 238/255,
+                                              blue: 238/255,
+                                              alpha: 1).cgColor
+        nameTextField.layer.borderWidth = 1.5
+        nameTextField.layer.cornerRadius = 7
+        nameTextField.layer.masksToBounds = true
+        nameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        
+        surnameTextField.placeholder = "Фамилия"
+        surnameTextField.layer.borderColor = UIColor(red: 238/255,
+                                              green: 238/255,
+                                              blue: 238/255,
+                                              alpha: 1).cgColor
+        surnameTextField.layer.borderWidth = 1.5
+        surnameTextField.layer.cornerRadius = 7
+        surnameTextField.layer.masksToBounds = true
+        surnameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: 900)
         
         regButtonView.addSubview(regButton)
-        [maleRButton, femaleRButton, loginLabel, passwordLabel, loginEdit, passwordEdit, repeatPasswordLabel, repeatPasswordEdit, regButtonView].forEach{formRegistrationView.addSubview($0)}
+        [maleRButton, femaleRButton, loginLabel, passwordLabel, loginEdit, passwordEdit, repeatPasswordLabel, repeatPasswordEdit, regButtonView, nameLabel, surnameLabel, nameTextField, surnameTextField].forEach{formRegistrationView.addSubview($0)}
         
-        [formRegistrationView, logoImageView, headLabel].forEach{ view.addSubview($0)}
+        [formRegistrationView, logoImageView, headLabel].forEach{ scrollView.addSubview($0)}
+        
+        view.addSubview(scrollView)
 	}
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        logoImageView.pin.top(12.1%).hCenter()
+        scrollView.pin
+            .all(view.pin.safeArea)
+        
+        logoImageView.pin
+            .top(50)
+            .hCenter()
+        
         headLabel.pin
-            .below(of: logoImageView).hCenter()
-            .marginTop(5.0%).sizeToFit()
+            .below(of: logoImageView)
+            .hCenter()
+            .marginTop(5.0%)
+            .sizeToFit()
         
         formRegistrationView.pin
             .horizontally(5.3%)
-            .height(100%)
+            .height(800)
             .below(of: headLabel).marginTop(4.5%)
+        
+        nameLabel.pin
+            .top(5)
+            .marginTop(20)
+            .sizeToFit()
+        
+        nameTextField.pin
+            .below(of: nameLabel)
+            .marginTop(5)
+            .height(40)
+            .horizontally()
+        
+        surnameLabel.pin
+            .below(of: nameTextField)
+            .marginTop(20)
+            .sizeToFit()
+        
+        surnameTextField.pin
+            .below(of: surnameLabel)
+            .marginTop(5)
+            .height(40)
+            .horizontally()
+        
         maleRButton.pin
+            .below(of: surnameTextField)
+            .marginTop(10)
             .height(40)
             .width(46%)
             .horizontally()
-            .topLeft()
+            .left()
         femaleRButton.pin
+            .below(of: surnameTextField)
+            .marginTop(10)
             .height(40)
             .width(46%)
-            .topRight()
+            .right()
         loginLabel.pin
             .below(of: maleRButton)
             .marginTop(20)
@@ -208,7 +292,9 @@ final class RegistrationViewController: UIViewController {
             .height(40)
             .horizontally()
     }
-    @objc func didTapRadioButton(_ sender: UIButton) {
+    
+    @objc
+    func didTapRadioButton(_ sender: UIButton) {
         if(sender == maleRButton && femaleRButton.layer.borderColor == UIColor.orange.cgColor)
         {
             sender.layer.borderColor = UIColor.orange.cgColor
@@ -240,7 +326,17 @@ final class RegistrationViewController: UIViewController {
             print("empty or not valid password")
             return
         }
-        output.didTapRegButton(email: email, password: password)
+        guard let name = nameTextField.text, !name.isEmpty else {
+            print("empty or not valid login")
+            return
+        }
+        guard let surname = surnameTextField.text, !surname.isEmpty else {
+            print("empty or not valid login")
+            return
+        }
+
+        let user = UserData(uid: "", email: email, name: name, surname: surname, sex: sex)
+        output.didTapRegButton(user: user, password: password)
     }
     
 }

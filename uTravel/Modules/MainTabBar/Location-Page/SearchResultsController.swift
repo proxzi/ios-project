@@ -6,84 +6,90 @@
 //
 
 import UIKit
+import MapKit
+import PinLayout
 
-protocol LocateOnTheMap{
-    func locateWithLongitude(_ lon:Double, andLatitude lat:Double, andTitle title: String)
-}
 
-class SearchResultsController: UITableViewController {
-    
-    var searchResults: [String]!
-    var delegate: LocateOnTheMap!
+class LocationSearchTable : UITableViewController {
+    var matchingItems:[MKMapItem] = []
+    var mapView: MKMapView? = nil
+    var handleMapSearchDelegate:HandleMapSearch? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchResults = Array()
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func parseAddress(selectedItem: MKPlacemark) -> String {
+        // put a space between "4" and "Melrose Place"
+        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
+        // put a comma between street and city/state
+        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
+        // put a space between "Washington" and "DC"
+        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
+        let addressLine = String(
+            format:"%@%@%@%@%@%@%@",
+            // street number
+            selectedItem.subThoroughfare ?? "",
+            firstSpace,
+            // street name
+            selectedItem.thoroughfare ?? "",
+            comma,
+            // city
+            selectedItem.locality ?? "",
+            secondSpace,
+            // state
+            selectedItem.administrativeArea ?? ""
+        )
+        return addressLine
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = matchingItems[indexPath.row].placemark
+        handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem, drop: true)
+        dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return self.searchResults.count
+        return matchingItems.count
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
-        
-        cell.textLabel?.text = self.searchResults[indexPath.row]
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
+        let selectedItem = matchingItems[indexPath.row].placemark
+        cell.textLabel?.text = selectedItem.name
+        cell.detailTextLabel?.text = parseAddress(selectedItem: selectedItem)
         return cell
     }
+}
+
+extension LocationSearchTable : UISearchResultsUpdating {
     
-    
-    
-    override func tableView(_ tableView: UITableView,
-                            didSelectRowAt indexPath: IndexPath){
-        // 1
-        self.dismiss(animated: true, completion: nil)
-        // 2
-        let urlpath = "https://maps.googleapis.com/maps/api/geocode/json?address=\(self.searchResults[indexPath.row])&sensor=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        let url = URL(string: urlpath!)
-        // print(url!)
-        let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
-            // 3
-            
-            do {
-                if data != nil{
-                    let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as! NSDictionary
-                    
-                    let lat =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lat")) as! Double
-                    
-                    let lon =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
-                    // 4
-                    self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
-                }
-                
-            }catch {
-                print("Error")
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let mapView = mapView,
+            let searchBarText = searchController.searchBar.text else { return }
+        let request = MKLocalSearch.Request()
+        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [])
+        request.naturalLanguageQuery = searchBarText
+        request.region = mapView.region
+        let search = MKLocalSearch(request: request)
+        search.start { response, _ in
+            guard let response = response else {
+                return
             }
+            self.matchingItems = response.mapItems
+            self.tableView.reloadData()
         }
-        // 5
-        task.resume()
-    }
-    
-    
-    func reloadDataWithArray(_ array:[String]){
-        self.searchResults = array
-        self.tableView.reloadData()
     }
 }
+
+

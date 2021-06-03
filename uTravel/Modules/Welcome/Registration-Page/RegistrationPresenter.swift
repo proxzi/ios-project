@@ -25,8 +25,8 @@ extension RegistrationPresenter: RegistrationModuleInput {
 }
 
 extension RegistrationPresenter: RegistrationViewOutput {
-    func didTapRegButton(email: String, password: String) {
-        interactor.createUser(withEmail: email, password: password)
+    func didTapRegButton(user: UserData, password: String) {
+        interactor.createUser(user: user, password: password)
         print("registration")
     }
     

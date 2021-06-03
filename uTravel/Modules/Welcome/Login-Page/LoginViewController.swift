@@ -53,7 +53,7 @@ final class LoginViewController: UIViewController {
         headLabel.textAlignment = .center
         headLabel.font = UIFont.systemFont(ofSize: 38, weight: .regular)
         
-        loginLabel.text = "Логин"
+        loginLabel.text = "Email"
         loginLabel.textAlignment = .center
         loginLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         loginLabel.textColor =  UIColor(red: 102/255,
@@ -98,7 +98,7 @@ final class LoginViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapRegistrationLabel))
         signUpLabel.addGestureRecognizer(gestureRecognizer)
        
-        loginEdit.placeholder = "Логин"
+        loginEdit.placeholder = "Email"
         loginEdit.layer.borderColor = UIColor(red: 238/255,
                                               green: 238/255,
                                               blue: 238/255,

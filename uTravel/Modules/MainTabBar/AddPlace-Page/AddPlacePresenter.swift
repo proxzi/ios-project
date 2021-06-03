@@ -25,12 +25,20 @@ extension AddPlacePresenter: AddPlaceModuleInput {
 }
 
 extension AddPlacePresenter: AddPlaceViewOutput {
+    func didTapDoneBarButton(place: Place) {
+        interactor.saveTrip(place: place)
+    }
+    
     func didTapHeadImageView() {
         router.showImagePicker(output: self)
     }
 }
 
 extension AddPlacePresenter: AddPlaceInteractorOutput {
+    func didSuccessfulSaveData() {
+        view?.didSuccessfulSaveData()
+    }
+    
 }
 
 extension AddPlacePresenter: ImagePickerOutput {

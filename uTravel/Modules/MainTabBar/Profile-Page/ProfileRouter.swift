@@ -13,13 +13,16 @@ final class ProfileRouter {
 }
 
 extension ProfileRouter: ProfileRouterInput {
+    
     func openProfileSettings() {
         let container = ProfileSettingsContainer.assemble(with: ProfileSettingsContext())
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    func openTravelDetail() {
+    func openTravelDetail(with trip: Trip) {
+        TravelDetailViewController.trip = trip
         let container = TravelDetailContainer.assemble(with: TravelDetailContext())
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }
+

@@ -10,7 +10,12 @@ import UIKit
 import PinLayout
 final class TravelDetailViewController: UIViewController {
 	private let output: TravelDetailViewOutput
-
+    
+    private let scrollView = UIScrollView()
+    
+    
+    static var trip: Trip?
+    
     private let headImageView = UIImageView()
     private let titleTravelLabel = UILabel()
     private let locationImageView = UIImageView()
@@ -41,28 +46,42 @@ final class TravelDetailViewController: UIViewController {
         view.backgroundColor = .white
         
         
-        headImageView.image = UIImage(named: "sea")
+        headImageView.image = TravelDetailViewController.trip?.image//UIImage(named: "sea")
         headImageView.layer.cornerRadius = 20
         headImageView.layer.masksToBounds = true
         
-        titleTravelLabel.text = "Зима в португалии"
+        titleTravelLabel.text = TravelDetailViewController.trip?.title//"Зима в португалии"
         titleTravelLabel.textAlignment = .center
         titleTravelLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         titleTravelLabel.textColor = .black
         
-        [headImageView, titleTravelLabel].forEach{view.addSubview($0)}
-	}
+        locationLabel.text = "Местоположение: \(TravelDetailViewController.trip!.location)"
+        locationLabel.textAlignment = .center
+        locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        locationLabel.textColor = .black
+        
+        [headImageView, titleTravelLabel, locationLabel].forEach{scrollView.addSubview($0)}
+        view.addSubview(scrollView)
+    
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        scrollView.pin
+            .all(view.pin.safeArea)
         headImageView.pin
-            .top(view.pin.safeArea)
+            .top(5)
             .horizontally(20)
             .height(200)
         titleTravelLabel.pin
             .below(of: headImageView)
             .sizeToFit()
             .marginTop(28)
+            .left(20)
+        locationLabel.pin
+            .below(of: titleTravelLabel)
+            .sizeToFit()
+            .marginTop(10)
             .left(20)
     }
 }

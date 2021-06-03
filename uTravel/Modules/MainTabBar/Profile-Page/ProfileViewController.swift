@@ -13,6 +13,7 @@ import PinLayout
 final class ProfileViewController: UIViewController {
 	private let output: ProfileViewOutput
 
+    
     private let collectionView: UICollectionView = {
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .vertical
@@ -30,6 +31,8 @@ final class ProfileViewController: UIViewController {
     private let dateSignInLabel = UILabel()
     private let statusImage = UIImageView()
     
+    private var trips = Array<Trip>()
+    
     init(output: ProfileViewOutput) {
         self.output = output
 
@@ -41,6 +44,18 @@ final class ProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.didLoadTravels()
+        output.didLoadUserData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        output.didRemoveObserves()
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         let settingsImage = UIImage(named: "settings")
@@ -92,6 +107,7 @@ final class ProfileViewController: UIViewController {
         
         [headImage, profileImage, fullnameLabel, aboutLabel, countryLabel, dateSignInLabel].forEach{ profileView.addSubview($0)}
         [collectionView, profileView].forEach{ view.addSubview($0)}
+        
         
 	}
     
@@ -145,7 +161,7 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return trips.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -153,12 +169,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TravelCollectionViewProfileCell", for: indexPath) as? TravelCollectionViewProfileCell else {
             return .init()
         }
+        cell.configure(trip: trips[indexPath.row])
         
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        output.didSelectItemCollection()
+        output.didSelectItemCollection(trip: trips[indexPath.row])
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let availableWidth = collectionView.bounds.width - 2
@@ -181,4 +198,20 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 extension ProfileViewController: ProfileViewInput {
+    func reloadData(trip: Trip, index: Int) {
+        if index < trips.count {
+            trips[index] = trip
+            collectionView.reloadData()
+        }
+    }
+    
+    func loadedListTrips(trips: Array<Trip>) {
+        self.trips = trips
+        collectionView.reloadData()
+    }
+    
+    func reloadUserData(user: UserData) {
+        fullnameLabel.text = user.name + " " + user.surname
+        fullnameLabel.pin.sizeToFit()
+    }
 }

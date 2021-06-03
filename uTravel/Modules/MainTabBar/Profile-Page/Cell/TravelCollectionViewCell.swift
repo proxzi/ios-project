@@ -21,6 +21,26 @@ class TravelCollectionViewProfileCell: UICollectionViewCell {
     private let dateView = UIView()
     private let seasonView = UIView()
     private let priceView = UIView()
+    
+    func configure(trip: Trip){
+        titleLabel.text = trip.title
+        iconImageView.image = trip.image
+        locationLabel.text = trip.location
+        seasonLabel.text = trip.season
+        let num = trip.date.last
+        var suffix: String
+        if num == "1" {
+            suffix = " день"
+        }
+        else if num == "2" || num == "3" || num == "4" {
+            suffix = " дня"
+        }
+        else {
+            suffix = " дней"
+        }
+        dateLabel.text = trip.date + suffix
+        priceLabel.text = trip.price + "$"
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,34 +52,34 @@ class TravelCollectionViewProfileCell: UICollectionViewCell {
     }
     
     private func setup() {
-        titleLabel.text = "Зима в Португалии"
+        titleLabel.text = ""
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         
-        dateLabel.text = "7 дней"
+        dateLabel.text = ""
         dateLabel.textAlignment = .center
         dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
         dateLabel.textColor = .black
         
-        seasonLabel.text = "Зима"
+        seasonLabel.text = ""
         seasonLabel.textAlignment = .center
         seasonLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
         seasonLabel.textColor = .black
         
-        priceLabel.text = "2 000$"
+        priceLabel.text = ""
         priceLabel.textAlignment = .center
         priceLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         priceLabel.textColor = .white
         
         
-        locationLabel.text = "Португалия, Лиссабон"
+        locationLabel.text = ""
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         locationLabel.textColor = UIColor(red: 170/255,
                                           green: 170/255,
                                           blue: 170/255,
                                           alpha: 1.0)
         
-        locationLabel.textAlignment = .center
+        locationLabel.textAlignment = .left
         
         seasonView.layer.cornerRadius = 5
         seasonView.layer.masksToBounds = true
@@ -136,19 +156,20 @@ class TravelCollectionViewProfileCell: UICollectionViewCell {
             .below(of: titleLabel)
             .marginLeft(18)
             //.marginTop(4)
-        
+    
         dateView.pin
             .after(of: iconImageView)
             .below(of: locationLabel)
             .marginLeft(15)
             .marginTop(13)
             .height(18)
-            .width(42)
+            .width(52)
         
         dateLabel.pin
-            .sizeToFit()
+            .height(18)
+            .width(52)
             .center()
-
+        
         seasonView.pin
             .after(of: dateView)
             .below(of: locationLabel)
@@ -162,9 +183,8 @@ class TravelCollectionViewProfileCell: UICollectionViewCell {
             .center()
         
         priceView.pin
-            .after(of: titleLabel)
+            .right(10)
             .top(54)
-            .marginLeft(21)
             .height(23)
             .width(62)
         priceLabel.pin
