@@ -13,12 +13,13 @@ final class PlaceDetailContainer {
 	let viewController: UIViewController
 	private(set) weak var router: PlaceDetailRouterInput!
 
-	class func assemble(with context: PlaceDetailContext) -> PlaceDetailContainer {
+    class func assemble(with context: PlaceDetailContext, place: Place) -> PlaceDetailContainer {
         let router = PlaceDetailRouter()
         let interactor = PlaceDetailInteractor()
         let presenter = PlaceDetailPresenter(router: router, interactor: interactor)
 		let viewController = PlaceDetailViewController(output: presenter)
 
+        viewController.place = place
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
 

@@ -19,9 +19,8 @@ extension ProfileRouter: ProfileRouterInput {
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    func openTravelDetail(with trip: Trip) {
-        TravelDetailViewController.trip = trip
-        let container = TravelDetailContainer.assemble(with: TravelDetailContext())
+    func openTravelDetail(with trip: Trip, and places: Array<Place>) {
+        let container = TravelDetailContainer.assemble(with: TravelDetailContext(), trip: trip, places: places)
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

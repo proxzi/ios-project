@@ -15,9 +15,12 @@ final class ProfilePresenter {
 	private let router: ProfileRouterInput
 	private let interactor: ProfileInteractorInput
 
+    private var trip: Trip?
+    
     init(router: ProfileRouterInput, interactor: ProfileInteractorInput) {
         self.router = router
         self.interactor = interactor
+        self.trip = nil
     }
 }
 
@@ -42,11 +45,17 @@ extension ProfilePresenter: ProfileViewOutput {
     }
     
     func didSelectItemCollection(trip: Trip) {
-        router.openTravelDetail(with: trip)
+        self.trip = trip
+        interactor.loadListPlaces(ref: trip.ref!)
+        
     }
 }
 
 extension ProfilePresenter: ProfileInteractorOutput {
+    func loadedPlaces(places: Array<Place>) {
+        router.openTravelDetail(with: trip!, and: places)
+    }
+    
     func loadedUserData(user: UserData) {
         view?.reloadUserData(user: user)
     }

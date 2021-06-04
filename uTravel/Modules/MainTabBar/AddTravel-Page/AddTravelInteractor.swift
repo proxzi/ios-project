@@ -56,23 +56,21 @@ extension AddTravelInteractor: AddTravelInteractorInput {
     func saveTrip(trip: Trip, places: Array<Place>) {
         self.trip = trip
         self.places = places
-        
-        for i in 0...(self.places.count - 1) {
-            imageUpload(image: places[i].image! ,title: "myimage", index: i )
-        }
+        guard let currentUser = Auth.auth().currentUser else { return }
+        user = User(user: currentUser)
+        ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("trips").child(trip.title.lowercased())
         imageUpload(image: trip.image, title: "myimage")
+        
     }
     
     func updateJSON(trip: Trip) {
-        ref = Database.database().reference(withPath: "users").child(String(trip.userId)).child("trips")
-        ref = self.ref.child(trip.title.lowercased())
         ref.setValue(trip.convertToDictionary())
     }
     
     func updateJSON(place: Place) {
         countPlaces += 1
-
-        var placeRef = self.ref.child("places")
+        
+        var placeRef = ref.child("places")
         placeRef = placeRef.child(String(place.id))
         placeRef.setValue(place.convertToDictionary())
 
@@ -89,6 +87,9 @@ extension AddTravelInteractor: AddTravelInteractorInput {
                 self?.output?.didReceiveImage(toString: name)
                 self?.trip.imageString = name
                 self?.updateJSON(trip: (self?.trip)!)
+                for i in 0...((self?.places.count)! - 1) {
+                    self?.imageUpload(image: (self?.places[i].image!)! ,title: "myimage", index: i )
+                }
             case .failure(let error):
                 self?.output?.didReceive(error: error)
             }

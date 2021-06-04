@@ -26,6 +26,7 @@ final class AddPlaceViewController: UIViewController {
     private let classPlaceHeadLabel = UILabel()
     private let classPlaceTextField = UITextField()
     private let classPlaceToolBar = UIToolbar()
+    private let promptLabel = UILabel()
     
     static var place: Place!
     static var idPlace = 0
@@ -96,6 +97,9 @@ final class AddPlaceViewController: UIViewController {
         headImageView.layer.cornerRadius = 10
         headImageView.layer.masksToBounds = true
         
+        promptLabel.text = "Нажмите для загрузки"
+        promptLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        promptLabel.textColor = .black
         
         titleLabel.text = "Выбрать место"
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
@@ -152,6 +156,7 @@ final class AddPlaceViewController: UIViewController {
 //        femaleRButton.addTarget(self, action: #selector(didTapRadioButton), for: .touchUpInside)
         
         headImageView.addSubview(headIconImageView)
+        headImageView.addSubview(promptLabel)
         
         [cosmosView, headImageView, titleLabel, ratingLabel, descriptionLabel, descriptionTextView, classPlaceHeadLabel, classPlaceTextField].forEach{view.addSubview($0) }
         
@@ -177,6 +182,10 @@ final class AddPlaceViewController: UIViewController {
             .width(50)
             .height(50)
             .center()
+        promptLabel.pin
+            .below(of: headIconImageView)
+            .sizeToFit()
+            .hCenter()
         titleLabel.pin
             .below(of: headImageView)
             .marginTop(10)
@@ -292,6 +301,7 @@ extension AddPlaceViewController: AddPlaceViewInput {
     
     func downloadHeadImage(image: UIImage?) {
         headIconImageView.isHidden = true
+        promptLabel.isHidden = true
         headImageView.image = image
     }
 }

@@ -25,6 +25,10 @@ extension TravelDetailPresenter: TravelDetailModuleInput {
 }
 
 extension TravelDetailPresenter: TravelDetailViewOutput {
+    func didSelectItemCollection(place: Place) {
+        router.openPlaceDetail(place: place)
+    }
+    
 }
 
 extension TravelDetailPresenter: TravelDetailInteractorOutput {

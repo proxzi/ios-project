@@ -18,8 +18,8 @@ extension ExploreRouter: ExploreRouterInput {
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    func openTravelDetail() {
-        let container = TravelDetailContainer.assemble(with: TravelDetailContext())
+    func openTravelDetail(with trip: Trip, and places: Array<Place>) {
+        let container = TravelDetailContainer.assemble(with: TravelDetailContext(), trip: trip, places: places)
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     

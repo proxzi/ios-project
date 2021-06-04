@@ -13,16 +13,20 @@ final class TravelDetailContainer {
 	let viewController: UIViewController
 	private(set) weak var router: TravelDetailRouterInput!
 
-	class func assemble(with context: TravelDetailContext) -> TravelDetailContainer {
+    class func assemble(with context: TravelDetailContext, trip: Trip, places: Array<Place>) -> TravelDetailContainer {
         let router = TravelDetailRouter()
         let interactor = TravelDetailInteractor()
         let presenter = TravelDetailPresenter(router: router, interactor: interactor)
 		let viewController = TravelDetailViewController(output: presenter)
 
+        viewController.trip = trip
+        viewController.places = places
+        
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        router.viewController = viewController
         
         
         return TravelDetailContainer(view: viewController, input: presenter, router: router)

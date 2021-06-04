@@ -18,7 +18,7 @@ final class ExploreViewController: UIViewController {
 
         return UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
     }()
-    
+    private var trips = Array<Trip>()
     
     private let findTextField = UITextField()
     private let searchGroup = UIView()
@@ -36,6 +36,14 @@ final class ExploreViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !AddTravelViewController.placesFromAddPlaceVC.isEmpty{
+            AddTravelViewController.placesFromAddPlaceVC.removeAll()
+        }
+        output.didLoadTravels()
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
@@ -69,12 +77,7 @@ final class ExploreViewController: UIViewController {
         [searchGroup, collectionView].forEach{ view.addSubview($0)}
 	}
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if !AddTravelViewController.placesFromAddPlaceVC.isEmpty{
-            AddTravelViewController.placesFromAddPlaceVC.removeAll()
-        }
-    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchGroup.pin
@@ -104,7 +107,7 @@ final class ExploreViewController: UIViewController {
 
 extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return trips.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -112,12 +115,13 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TravelCollectionViewExploreCell", for: indexPath) as? TravelCollectionViewExploreCell else {
             return .init()
         }
+        cell.configure(trip: trips[indexPath.row])
         
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        output.didSelectItemCollection()
+        output.didSelectItemCollection(with: trips[indexPath.row])
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let availableWidth = collectionView.bounds.width - 2
@@ -141,4 +145,8 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
 
 
 extension ExploreViewController: ExploreViewInput {
+    func loadedListTrips(trips: Array<Trip>) {
+        self.trips = trips
+        collectionView.reloadData()
+    }
 }

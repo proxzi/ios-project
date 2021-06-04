@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 protocol ExploreModuleInput {
 	var moduleOutput: ExploreModuleOutput? { get }
@@ -16,20 +17,25 @@ protocol ExploreModuleOutput: class {
 }
 
 protocol ExploreViewInput: class {
+    func loadedListTrips(trips: Array<Trip>)
 }
 
 protocol ExploreViewOutput: class {
-    func didSelectItemCollection()
+    func didSelectItemCollection(with trip: Trip)
     func didTapAddTravelButton()
+    func didLoadTravels()
 }
 
 protocol ExploreInteractorInput: class {
+    func loadListPlaces(ref: FirebaseDatabase.DatabaseReference)
+    func updateListTravels()
 }
 
 protocol ExploreInteractorOutput: class {
+    func loadedListTrips(trips: Array<Trip>)
 }
 
 protocol ExploreRouterInput: class {
-    func openTravelDetail()
+    func openTravelDetail(with trip: Trip, and places: Array<Place>)
     func openAddTravel()
 }

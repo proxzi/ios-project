@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 protocol ProfileModuleInput {
 	var moduleOutput: ProfileModuleOutput? { get }
@@ -33,15 +34,17 @@ protocol ProfileInteractorInput: class {
     func updateListTravels()
     func updateUserData()
     func removeObserves()
+    func loadListPlaces(ref: FirebaseDatabase.DatabaseReference)
 }
 
 protocol ProfileInteractorOutput: class {
     func loadedListTrips(trips: Array<Trip>)
     func reloadData(trip: Trip, index: Int)
     func loadedUserData(user: UserData)
+    func loadedPlaces(places: Array<Place>)
 }
 
 protocol ProfileRouterInput: class {
     func openProfileSettings()
-    func openTravelDetail(with trip: Trip)
+    func openTravelDetail(with trip: Trip, and places: Array<Place>)
 }

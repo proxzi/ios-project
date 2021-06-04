@@ -19,6 +19,7 @@ protocol TravelDetailViewInput: class {
 }
 
 protocol TravelDetailViewOutput: class {
+    func didSelectItemCollection(place: Place)
 }
 
 protocol TravelDetailInteractorInput: class {
@@ -28,4 +29,5 @@ protocol TravelDetailInteractorOutput: class {
 }
 
 protocol TravelDetailRouterInput: class {
+    func openPlaceDetail(place: Place)
 }

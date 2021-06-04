@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSVG
 
 final class MainTabBarController: UITabBarController {
 	private let output: MainTabBarControllerOutput
@@ -34,9 +35,9 @@ final class MainTabBarController: UITabBarController {
 //        let addTravelPage = UINavigationController(rootViewController: addTravelContainer.viewController)
 //        addTravelPage.title = "Добавить"
         
-        let notificationContainer = NotificationContainer.assemble(with: NotificationContext())
-        let notificationPage = UINavigationController(rootViewController: notificationContainer.viewController)
-        notificationPage.title = "Уведомления"
+        let searchUsersContainer = SearchUsersContainer.assemble(with: SearchUsersContext())
+        let searchUsersPage = UINavigationController(rootViewController: searchUsersContainer.viewController)
+        searchUsersPage.title = "Поиск"
         
         let chatContainer = ChatContainer.assemble(with: ChatContext())
         let chatPage = UINavigationController(rootViewController: chatContainer.viewController)
@@ -47,12 +48,12 @@ final class MainTabBarController: UITabBarController {
         profilePage.title = "Профиль"
         
         
-        setViewControllers([explorePage, notificationPage, chatPage, profilePage], animated: true)
+        setViewControllers([explorePage, searchUsersPage, chatPage, profilePage], animated: true)
         
-        self.tabBar.items?[0].image = UIImage(systemName: "pencil")
-        self.tabBar.items?[1].image = UIImage(systemName: "pencil")
+        self.tabBar.items?[0].image = UIImage(named: "airplane2")
+        self.tabBar.items?[1].image = UIImage(named: "searchbar")
         self.tabBar.items?[2].image = UIImage(systemName: "pencil")
-        self.tabBar.items?[3].image = UIImage(systemName: "pencil")
+        self.tabBar.items?[3].image = UIImage(named: "profile")
 //        let myTabBarItem1 = (self.tabBar.items?[0])! as UITabBarItem
 //        myTabBarItem1.image = UIImage(systemName: "compass")
 //        myTabBarItem1.selectedImage = UIImage(systemName: "compass")

@@ -335,7 +335,7 @@ final class RegistrationViewController: UIViewController {
             return
         }
 
-        let user = UserData(uid: "", email: email, name: name, surname: surname, sex: sex)
+        let user = UserData(email: email, name: name, surname: surname, sex: sex)
         output.didTapRegButton(user: user, password: password)
     }
     

@@ -22,6 +22,7 @@ final class AddTravelViewController: UIViewController {
     private let dateTextField = UITextField()
     private let seasonToolBar = UIToolbar()
     private let priceTextField = UITextField()
+    private let promptLabel = UILabel()
     
     private let descriptionLabel = UILabel()
     private let descriptionTextView = KMPlaceholderTextView()
@@ -80,6 +81,8 @@ final class AddTravelViewController: UIViewController {
 
         view.backgroundColor = .white
         
+        
+        
         collectionPlaceView.backgroundColor = .systemBackground
         collectionPlaceView.dataSource = self
         collectionPlaceView.delegate = self
@@ -106,6 +109,11 @@ final class AddTravelViewController: UIViewController {
         headIconImageView.image = UIImage(named: "download")
         headIconImageView.isUserInteractionEnabled = true
         headIconImageView.addGestureRecognizer(gestureRecognizerImage)
+        
+        promptLabel.text = "Нажмите для загрузки"
+        promptLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        promptLabel.textColor = .black
+        
         
         headImageView.backgroundColor = .lightGray
         headImageView.isUserInteractionEnabled = true
@@ -174,6 +182,7 @@ final class AddTravelViewController: UIViewController {
         descriptionTextView.font = UIFont.systemFont(ofSize: 16, weight: .light)
         
         headImageView.addSubview(headIconImageView)
+        headImageView.addSubview(promptLabel)
         
         [headImageView, titleTextField, locationLabel, seasonTextField, dateTextField, collectionPlaceView, priceTextField, descriptionLabel, descriptionTextView].forEach{view.addSubview($0) }
         
@@ -190,6 +199,10 @@ final class AddTravelViewController: UIViewController {
             .width(50)
             .height(50)
             .center()
+        promptLabel.pin
+            .below(of: headIconImageView)
+            .sizeToFit()
+            .hCenter()
         titleTextField.pin
             .below(of: headImageView)
             .marginTop(10)
@@ -391,6 +404,7 @@ extension AddTravelViewController: AddTravelViewInput {
     
     func downloadHeadImage(image: UIImage?) {
         headIconImageView.isHidden = true
+        promptLabel.isHidden = true
         headImageView.image = image
     }
 }
