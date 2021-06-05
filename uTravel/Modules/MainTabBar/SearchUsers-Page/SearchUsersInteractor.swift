@@ -22,6 +22,7 @@ final class SearchUsersInteractor {
 extension SearchUsersInteractor: SearchUsersInteractorInput {
     func updateUserList() {
         ref = Database.database().reference(withPath: "users")
+        users.removeAll()
         ref.observe(.value, with: { [weak self] (snapshot) in
             for item in snapshot.children {
                 var user = UserData(snapshot: item as! Firebase.DataSnapshot)
@@ -34,9 +35,14 @@ extension SearchUsersInteractor: SearchUsersInteractorInput {
                             self?.output?.loadedUserList(users: (self?.users)!)
                         }
                     case .failure(let error):
-                        print(error)
+                        print("searchinteractor: \(error)")
+                        
+                        self?.users.append(user)
+                        self?.output?.loadedUserList(users: (self?.users)!)
                     }
                 })
+//                self?.users.append(user)
+//                self?.output?.loadedUserList(users: (self?.users)!)
             }
         })
     }

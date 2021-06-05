@@ -8,6 +8,7 @@
 
 import UIKit
 import PinLayout
+import KMPlaceholderTextView
 
 final class ProfileSettingsViewController: UIViewController {
 	private let output: ProfileSettingsViewOutput
@@ -19,6 +20,9 @@ final class ProfileSettingsViewController: UIViewController {
     private let nameTextField = UITextField()
     private let surnameTextField = UITextField()
     private let locationTextField = UITextField()
+    private let descriptionLabel = UILabel()
+    private let descriptionTextView = KMPlaceholderTextView()
+    //private let backgroundImage = UIImageView()
     var user: UserData!
     
     init(output: ProfileSettingsViewOutput) {
@@ -38,15 +42,30 @@ final class ProfileSettingsViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(didTapDoneBarButton))
         
-        profileImage.image = UIImage(named: "profileImage")
-        profileImage.layer.cornerRadius = 30
-        profileImage.layer.masksToBounds = true
         
+        let gestureRecognizerImage = UITapGestureRecognizer(target: self, action: #selector(didTapProfileImageView))
+        
+        profileImage.image = UIImage(named: "profileImage")
+        if (user.profileImage != nil) {
+            profileImage.image = user.profileImage
+        }
+        profileImage.layer.cornerRadius = 50
+        profileImage.layer.masksToBounds = true
+        profileImage.addGestureRecognizer(gestureRecognizerImage)
+        profileImage.isUserInteractionEnabled = true
+        
+        if !user.name.isEmpty {
+            nameTextField.text = user.name
+        }
         nameTextField.placeholder = "Имя..."
         nameTextField.layer.borderWidth = 0.5
         nameTextField.layer.cornerRadius = 5
         nameTextField.layer.masksToBounds = true
         nameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        
+        if !user.surname.isEmpty {
+            surnameTextField.text = user.surname
+        }
         
         surnameTextField.placeholder = "Фамилия..."
         surnameTextField.layer.borderWidth = 0.5
@@ -54,11 +73,35 @@ final class ProfileSettingsViewController: UIViewController {
         surnameTextField.layer.masksToBounds = true
         surnameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
         
+        if !user.location.isEmpty {
+            locationTextField.text = user.location
+        }
+        
         locationTextField.placeholder = "Город..."
         locationTextField.layer.borderWidth = 0.5
         locationTextField.layer.cornerRadius = 5
         locationTextField.layer.masksToBounds = true
         locationTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        
+        
+        descriptionLabel.text = "О себе:"
+        descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        descriptionLabel.textColor = .black
+        
+        if !user.description.isEmpty {
+            descriptionTextView.text = user.description
+        }
+        
+        descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.borderColor = UIColor(red: 255/255,
+                                                        green: 125/255,
+                                                        blue: 13/255,
+                                                        alpha: 1).cgColor
+        descriptionTextView.layer.cornerRadius = 10
+        descriptionTextView.layer.masksToBounds = true
+        descriptionTextView.placeholder = "Расскажите о себе..."
+        descriptionTextView.placeholderColor = .gray
+        descriptionTextView.font = UIFont.systemFont(ofSize: 16, weight: .light)
         
         LogOutButton.setTitle("Выйти", for: .normal)
         LogOutButton.addTarget(self, action: #selector(didTapLogOutButton), for: .touchUpInside)
@@ -80,7 +123,7 @@ final class ProfileSettingsViewController: UIViewController {
         LogOutButtonView.isUserInteractionEnabled = true
         view.backgroundColor = .white
         LogOutButtonView.addSubview(LogOutButton)
-        [LogOutButtonView, profileImage, nameTextField, surnameTextField, locationTextField].forEach{ view.addSubview($0)}
+        [LogOutButtonView, profileImage, nameTextField, surnameTextField, locationTextField, descriptionLabel, descriptionTextView].forEach{ view.addSubview($0)}
 	}
     
     override func viewDidLayoutSubviews() {
@@ -95,6 +138,7 @@ final class ProfileSettingsViewController: UIViewController {
             .after(of: profileImage)
             .top(view.pin.safeArea + 20)
             .horizontally(10)
+            .marginLeft(5)
             .height(40)
         surnameTextField.pin
             .after(of: profileImage)
@@ -102,14 +146,28 @@ final class ProfileSettingsViewController: UIViewController {
             .marginTop(5)
             .horizontally(10)
             .height(40)
+            .marginLeft(5)
         locationTextField.pin
             .after(of: profileImage)
             .below(of: surnameTextField)
             .marginTop(5)
-            .horizontally()
+            .marginLeft(5)
+            .horizontally(10)
             .height(40)
+        
+        descriptionLabel.pin
+            .below(of: profileImage)
+            .marginTop(15)
+            .sizeToFit()
+            .left(20)
+        descriptionTextView.pin
+            .below(of: descriptionLabel)
+            .marginTop(5)
+            .horizontally(20)
+            .height(80)
+        
         LogOutButtonView.pin
-            .below(of: locationTextField)
+            .bottom(view.pin.safeArea + 20)
             .marginTop(15)
             .height(40)
             .horizontally(40)
@@ -126,8 +184,30 @@ final class ProfileSettingsViewController: UIViewController {
     @objc
     func didTapDoneBarButton() {
         
+        user.profileImage = profileImage.image
+        user.name = nameTextField.text ?? ""
+        user.surname = surnameTextField.text ?? ""
+        user.location = locationTextField.text ?? ""
+        user.description = descriptionTextView.text ?? ""
+        output.didTapDoneBarButton(user: user)
+    }
+    @objc
+    func didTapProfileImageView() {
+        output.didTapProfileImageView()
     }
 }
 
 extension ProfileSettingsViewController: ProfileSettingsViewInput {
+    func savedData() {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func downloadBackgroundImage(image: UIImage?) {
+        
+    }
+    
+    func downloadProfileImage(image: UIImage?) {
+        profileImage.image = image
+    }
 }

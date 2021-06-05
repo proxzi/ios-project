@@ -23,7 +23,7 @@ protocol ProfileViewInput: class {
 }
 
 protocol ProfileViewOutput: class {
-    func didTapSettingsButton()
+    func didTapSettingsButton(user: UserData)
     func didSelectItemCollection(trip: Trip)
     func didLoadTravels()
     func didLoadUserData()
@@ -45,6 +45,6 @@ protocol ProfileInteractorOutput: class {
 }
 
 protocol ProfileRouterInput: class {
-    func openProfileSettings()
+    func openProfileSettings(user: UserData)
     func openTravelDetail(with trip: Trip, and places: Array<Place>)
 }

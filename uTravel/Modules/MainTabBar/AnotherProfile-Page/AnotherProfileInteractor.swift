@@ -13,4 +13,7 @@ final class AnotherProfileInteractor {
 }
 
 extension AnotherProfileInteractor: AnotherProfileInteractorInput {
+    func didloadTargetPlaces(trip: Trip) {
+        
+    }
 }

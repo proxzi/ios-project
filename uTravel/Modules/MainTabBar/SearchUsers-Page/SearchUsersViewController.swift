@@ -90,15 +90,8 @@ extension SearchUsersViewController: UICollectionViewDelegate, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-//        if indexPath.row == 0 {
-//            output.didSelectItemCollection(index: idPlace)
-//            idPlace += 1
-//        }
-//        else {
-//            //output.didSelectItemCollection(place: AddTravelViewController.placesFromAddPlaceVC[indexPath.row - 1],index: indexPath.row)
-//        }
         
-        //output.didSelectItemCollection()
+        output.didSelectItemCollection(user: users[indexPath.row])
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let availableWidth = collectionView.bounds.width - 2

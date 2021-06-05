@@ -17,6 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let container = LoginContainer.assemble(with: LoginContext())
             return UINavigationController(rootViewController: container.logViewController)
         }
+//        do {
+//            try Auth.auth().signOut()
+//        }
+//        catch {
+//            print("An error occurred")
+//        }
         let container = MainContainer.assemble(with: MainContext())
         return container.tabBarController
     }

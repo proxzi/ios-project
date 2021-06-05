@@ -28,6 +28,9 @@ extension SearchUsersPresenter: SearchUsersViewOutput {
     func didLoadUserList() {
         interactor.updateUserList()
     }
+    func didSelectItemCollection(user: UserData) {
+        router.openAnotherProfile(user: user)
+    }
     
 }
 

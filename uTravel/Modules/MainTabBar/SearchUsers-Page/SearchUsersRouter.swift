@@ -9,7 +9,12 @@
 import UIKit
 
 final class SearchUsersRouter {
+    weak var viewController: UIViewController?
 }
 
 extension SearchUsersRouter: SearchUsersRouterInput {
+    func openAnotherProfile(user: UserData) {
+        let container = AnotherProfileContainer.assemble(with: AnotherProfileContext(), user: user)
+        self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
 }

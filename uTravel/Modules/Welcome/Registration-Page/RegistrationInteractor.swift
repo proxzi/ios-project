@@ -15,6 +15,8 @@ final class RegistrationInteractor {
     
     private var user: User!
     private var ref: DatabaseReference!
+    private let imageLoader: ImageLoaderDescription = ImageLoader.shared
+    private var userData: UserData!
 }
 
 extension RegistrationInteractor: RegistrationInteractorInput {
@@ -22,7 +24,7 @@ extension RegistrationInteractor: RegistrationInteractorInput {
     func createUser(user: UserData, password: String) {
         Auth.auth().createUser(withEmail: user.email, password: password, completion: {(result, error) in
             guard error == nil else {
-                print("error registration")
+                print("error registration: \(error!)")
                 return
             }
             print("You have signed in")
@@ -34,8 +36,33 @@ extension RegistrationInteractor: RegistrationInteractorInput {
         guard let currentUser = Auth.auth().currentUser else { return }
         self.user = User(user: currentUser)
         ref = Database.database().reference(withPath: "users")
+        self.userData = user
+        imageUpload(image: userData.profileImage!, title: "profile image")
+    }
+    
+    func updateJSON() {
         let userRef = self.ref.child(self.user.uid)
-        userRef.setValue(user.convertToDictionary())
+        userRef.setValue(userData.convertToDictionary())
         self.output?.successfulRegistration()
+    }
+    
+    func imageUpload(image: UIImage, title: String){
+        imageLoader.upload(image: image) { [weak self] (result) in
+            switch result {
+            case .success(let name):
+                self?.userData.profileImageString = name
+                self?.imageLoader.upload(image: (self?.userData.backgroundImage!)!) { [weak self] (result) in
+                    switch result {
+                    case .success(let name):
+                        self?.userData.backgroundImageString = name
+                        self?.updateJSON()
+                    case .failure(let error):
+                        print("registration interactor error: \(error)")
+                    }
+                }
+            case .failure(let error):
+                print("registration interactor error: \(error)")
+            }
+        }
     }
 }

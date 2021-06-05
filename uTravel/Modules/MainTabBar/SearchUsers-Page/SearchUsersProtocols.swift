@@ -21,6 +21,7 @@ protocol SearchUsersViewInput: class {
 
 protocol SearchUsersViewOutput: class {
     func didLoadUserList()
+    func didSelectItemCollection(user: UserData)
 }
 
 protocol SearchUsersInteractorInput: class {
@@ -32,4 +33,5 @@ protocol SearchUsersInteractorOutput: class {
 }
 
 protocol SearchUsersRouterInput: class {
+    func openAnotherProfile(user: UserData)
 }

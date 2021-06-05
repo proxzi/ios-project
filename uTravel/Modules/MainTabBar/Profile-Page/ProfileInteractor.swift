@@ -24,8 +24,10 @@ final class ProfileInteractor {
 
 extension ProfileInteractor: ProfileInteractorInput {
     func loadListPlaces(ref: FirebaseDatabase.DatabaseReference) {
+        
         let placeRef = ref.child("places")
         placeRef.observe(.value, with: { [weak self] (snapshot) in
+            self?.places.removeAll()
             for item in snapshot.children {
                 var place = Place(snapshot: item as! Firebase.DataSnapshot)
                 self?.imageLoader.image(with: place.imageString, completion: { [weak self] (result) in
@@ -55,10 +57,24 @@ extension ProfileInteractor: ProfileInteractorInput {
     func updateUserData() {
         guard let currentUser = Auth.auth().currentUser else { return }
         user = User(user: currentUser)
-        let refUser = Database.database().reference(withPath: "users")
+        let refUser = Database.database().reference(withPath: "users").child("\(user.uid)")
+
         refUser.observe(.value, with: { [weak self] (snapshot) in
-            for item in snapshot.children {
-                let userData = UserData(snapshot: item as! Firebase.DataSnapshot)
+            var userData = UserData(snapshot: snapshot)
+            if !(userData.profileImageString.isEmpty) {
+                self?.imageLoader.image(with: userData.profileImageString, completion: { [weak self] (result) in
+                    switch result {
+                    case .success(let image):
+                        userData.profileImage = image
+                        self?.output?.loadedUserData(user: userData)
+                    case .failure(let error):
+                        print(error)
+                        userData.profileImage = UIImage(named: "profileImage")
+                        self?.output?.loadedUserData(user: userData)
+                    }
+                })
+            }
+            else {
                 self?.output?.loadedUserData(user: userData)
             }
         })

@@ -1,20 +1,17 @@
 //
-//  ProfileViewController.swift
+//  AnotherProfileViewController.swift
 //  uTravel
 //
-//  Created by Dmitry on 26.04.2021.
-//  
+//  Created by Dmitry on 04.06.2021.
+//
 //
 
 import UIKit
-import SwiftSVG
-import PinLayout
-import KMPlaceholderTextView
 
-final class ProfileViewController: UIViewController {
-	private let output: ProfileViewOutput
+final class AnotherProfileViewController: UIViewController {
+    private let output: AnotherProfileViewOutput
 
-    
+    var user: UserData!
     private let collectionView: UICollectionView = {
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .vertical
@@ -22,8 +19,6 @@ final class ProfileViewController: UIViewController {
         return UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
     }()
     
-    
-    private let descriptionTextView = KMPlaceholderTextView()
     private let profileView = UIView()
     
     private let headImage = UIImageView()
@@ -33,10 +28,10 @@ final class ProfileViewController: UIViewController {
     private let countryLabel = UILabel()
     private let dateSignInLabel = UILabel()
     private let statusImage = UIImageView()
-    private var user: UserData!
+    
     private var trips = Array<Trip>()
     
-    init(output: ProfileViewOutput) {
+    init(output: AnotherProfileViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
@@ -46,25 +41,13 @@ final class ProfileViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        output.didLoadTravels()
-        output.didLoadUserData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //output.didRemoveObserves()
-    }
-    
-	override func viewDidLoad() {
-		super.viewDidLoad()
-        let settingsImage = UIImage(named: "settings")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettingsButton))
-        navigationItem.rightBarButtonItem?.tintColor = .orange
         
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         title = "Профиль"
         
         view.backgroundColor = .white
@@ -74,51 +57,44 @@ final class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(TravelCollectionViewProfileCell.self, forCellWithReuseIdentifier: "TravelCollectionViewProfileCell")
     
-        headImage.image = UIImage(named: "headImage")
+        headImage.image = UIImage(named: "headImage") //user.backgroundImage
         headImage.layer.cornerRadius = 10
         headImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         headImage.layer.masksToBounds = true
         
-        profileImage.image = UIImage(named: "profileImage")
+        profileImage.image = user.profileImage
         profileImage.layer.cornerRadius = 30
         profileImage.layer.masksToBounds = true
         
-        fullnameLabel.text = "                              "
+        fullnameLabel.text = "\(user.name) \(user.surname)"
         fullnameLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         fullnameLabel.textColor = .black
-        fullnameLabel.layer.backgroundColor = UIColor.gray.cgColor
-        fullnameLabel.layer.cornerRadius = 7
-        fullnameLabel.layer.masksToBounds = true
         
-        descriptionTextView.text = ""
-        descriptionTextView.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        descriptionTextView.textColor = UIColor(red: 102/255,
+        aboutLabel.text = user.description
+        aboutLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        aboutLabel.textColor = UIColor(red: 102/255,
                                           green: 102/255,
                                           blue: 102/255,
                                           alpha: 1.0)
         
-        countryLabel.text = "Россия"
+        countryLabel.text = user.location
         countryLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         countryLabel.textColor = UIColor(red: 170/255,
                                          green: 170/255,
                                          blue: 170/255,
                                          alpha: 1.0)
         
-        dateSignInLabel.text = "Январь 2020"
+        dateSignInLabel.text = user.registerDate
         dateSignInLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         dateSignInLabel.textColor = UIColor(red: 170/255,
                                          green: 170/255,
                                          blue: 170/255,
                                          alpha: 1.0)
         
-        
-        
-        [headImage, profileImage, fullnameLabel, countryLabel, dateSignInLabel, descriptionTextView].forEach{ profileView.addSubview($0)}
+        [headImage, profileImage, fullnameLabel, aboutLabel, countryLabel, dateSignInLabel].forEach{ profileView.addSubview($0)}
         [collectionView, profileView].forEach{ view.addSubview($0)}
         
-        
-	}
-    
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         profileView.pin
@@ -139,19 +115,18 @@ final class ProfileViewController: UIViewController {
             .sizeToFit()
             .marginTop(12)
             .left(19)
-        descriptionTextView.pin
+        aboutLabel.pin
             .below(of: fullnameLabel)
+            .sizeToFit()
             .marginTop(12)
-            .left(20)
-            .horizontally(20)
-            .height(40)
+            .left(19)
         countryLabel.pin
-            .below(of: descriptionTextView)
+            .below(of: aboutLabel)
             .sizeToFit()
             .marginTop(18)
-            .left(20)
+            .left(19)
         dateSignInLabel.pin
-            .below(of: descriptionTextView)
+            .below(of: aboutLabel)
             .after(of: countryLabel)
             .sizeToFit()
             .marginTop(18)
@@ -161,14 +136,14 @@ final class ProfileViewController: UIViewController {
             .marginTop(10)
             .horizontally()
             .bottom(view.pin.safeArea.bottom)
-    }
-    
-    @objc func didTapSettingsButton(){
-        output.didTapSettingsButton(user: self.user)
+        
     }
 }
 
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension AnotherProfileViewController: AnotherProfileViewInput {
+}
+
+extension AnotherProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trips.count
     }
@@ -203,31 +178,5 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .zero
-    }
-}
-
-extension ProfileViewController: ProfileViewInput {
-    func reloadData(trip: Trip, index: Int) {
-        if index < trips.count {
-            trips[index] = trip
-            collectionView.reloadData()
-        }
-    }
-    
-    func loadedListTrips(trips: Array<Trip>) {
-        self.trips = trips
-        collectionView.reloadData()
-    }
-    
-    func reloadUserData(user: UserData) {
-        self.user = user
-        fullnameLabel.layer.backgroundColor = UIColor.white.cgColor
-        fullnameLabel.text = user.name + " " + user.surname
-        fullnameLabel.pin.sizeToFit()
-        profileImage.image = user.profileImage
-        countryLabel.text = user.location
-        dateSignInLabel.text = user.registerDate
-        descriptionTextView.text = user.description
-        
     }
 }

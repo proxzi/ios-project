@@ -40,8 +40,8 @@ extension ProfilePresenter: ProfileViewOutput {
         interactor.updateListTravels()
     }
     
-    func didTapSettingsButton() {
-        router.openProfileSettings()
+    func didTapSettingsButton(user: UserData) {
+        router.openProfileSettings(user: user)
     }
     
     func didSelectItemCollection(trip: Trip) {

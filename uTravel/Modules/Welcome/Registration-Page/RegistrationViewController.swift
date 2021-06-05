@@ -335,7 +335,16 @@ final class RegistrationViewController: UIViewController {
             return
         }
 
-        let user = UserData(email: email, name: name, surname: surname, sex: sex)
+        let time = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM YYYY"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        // указатель временной зоны относительно гринвича
+        let formatteddate = formatter.string(from: time as Date)
+        let profileImage = UIImage(named: "profileImage")
+        let backgroundImage = UIImage(named: "headImage")
+        
+        let user = UserData(email: email, name: name, surname: surname, sex: sex, profileImage: profileImage!, location: "Nope", description: "Talk about", backgroundImage: backgroundImage!, registerDate: String(formatteddate))
         output.didTapRegButton(user: user, password: password)
     }
     

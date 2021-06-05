@@ -14,8 +14,8 @@ final class ProfileRouter {
 
 extension ProfileRouter: ProfileRouterInput {
     
-    func openProfileSettings() {
-        let container = ProfileSettingsContainer.assemble(with: ProfileSettingsContext())
+    func openProfileSettings(user: UserData) {
+        let container = ProfileSettingsContainer.assemble(with: ProfileSettingsContext(),user: user)
         self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     

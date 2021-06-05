@@ -25,7 +25,15 @@ extension AnotherProfilePresenter: AnotherProfileModuleInput {
 }
 
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
+    func didSelectItemCollection(trip: Trip) {
+        
+    }
+    
+    
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
+    func loadedPlaces(places: Array<Place>) {
+        
+    }
 }

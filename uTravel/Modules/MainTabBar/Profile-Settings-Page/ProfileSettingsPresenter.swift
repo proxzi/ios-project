@@ -6,9 +6,10 @@
 //  
 //
 
-import Foundation
+import UIKit
 
 final class ProfileSettingsPresenter {
+    
 	weak var view: ProfileSettingsViewInput?
     weak var moduleOutput: ProfileSettingsModuleOutput?
 
@@ -25,6 +26,14 @@ extension ProfileSettingsPresenter: ProfileSettingsModuleInput {
 }
 
 extension ProfileSettingsPresenter: ProfileSettingsViewOutput {
+    func didTapDoneBarButton(user: UserData) {
+        interactor.saveData(user: user)
+    }
+    
+    func didTapProfileImageView() {
+        router.showImagePicker(output: self)
+    }
+    
     func didTapLogOutButton() {
         interactor.didTapLogOutButton()
     }
@@ -32,8 +41,18 @@ extension ProfileSettingsPresenter: ProfileSettingsViewOutput {
 }
 
 extension ProfileSettingsPresenter: ProfileSettingsInteractorOutput {
+    func successfulSavedData() {
+        view?.savedData()
+    }
+    
     func successfulLogOut() {
         router.openLogin()
     }
     
+}
+
+extension ProfileSettingsPresenter: ImagePickerOutput {
+    func didSelect(image: UIImage?) {
+        view?.downloadProfileImage(image: image)
+    }
 }

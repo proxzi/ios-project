@@ -23,6 +23,8 @@ final class SearchUsersContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        router.viewController  = viewController
+        
 
         return SearchUsersContainer(view: viewController, input: presenter, router: router)
 	}

@@ -19,13 +19,17 @@ protocol AnotherProfileViewInput: class {
 }
 
 protocol AnotherProfileViewOutput: class {
+    func didSelectItemCollection(trip: Trip)
 }
 
 protocol AnotherProfileInteractorInput: class {
+    func didloadTargetPlaces(trip: Trip)
 }
 
 protocol AnotherProfileInteractorOutput: class {
+    func loadedPlaces(places: Array<Place>)
 }
 
 protocol AnotherProfileRouterInput: class {
+    func openTravelDetail(trip: Trip, places: Array<Place>)
 }
