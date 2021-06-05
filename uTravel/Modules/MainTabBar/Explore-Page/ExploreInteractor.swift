@@ -18,7 +18,26 @@ final class ExploreInteractor {
 
 extension ExploreInteractor: ExploreInteractorInput {
     func loadListPlaces(ref: DatabaseReference) {
-        
+        var places = Array<Place>()
+        let placeRef = ref.child("places")
+        placeRef.observe(.value, with: { [weak self] (snapshot) in
+            places.removeAll()
+            for item in snapshot.children {
+                var place = Place(snapshot: item as! Firebase.DataSnapshot)
+                self?.imageLoader.image(with: place.imageString, completion: { [weak self] (result) in
+                    switch result {
+                    case .success(let image):
+                        place.image = image
+                        places.append(place)
+                        if places.count == Int(snapshot.childrenCount) {
+                            self?.output?.loadedPlaces(places: places)
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+            }
+        })
     }
     
     func updateListTravels() {

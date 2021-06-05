@@ -24,7 +24,7 @@ final class ProfileInteractor {
 
 extension ProfileInteractor: ProfileInteractorInput {
     func loadListPlaces(ref: FirebaseDatabase.DatabaseReference) {
-        
+        places.removeAll()
         let placeRef = ref.child("places")
         placeRef.observe(.value, with: { [weak self] (snapshot) in
             self?.places.removeAll()

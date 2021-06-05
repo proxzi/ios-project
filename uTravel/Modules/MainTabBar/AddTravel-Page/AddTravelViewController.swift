@@ -135,7 +135,11 @@ final class AddTravelViewController: UIViewController {
         locationLabel.text = "Добавить город"
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         locationLabel.textColor = .black
+        locationLabel.textAlignment = .center
         locationLabel.addGestureRecognizer(gestureRecognizerLocal)
+        locationLabel.layer.cornerRadius = 5
+        locationLabel.layer.backgroundColor = UIColor.orange.cgColor
+        locationLabel.layer.masksToBounds = true
         locationLabel.isUserInteractionEnabled = true
         
         AddTravelViewController.textLocation = locationLabel.text!
@@ -211,8 +215,9 @@ final class AddTravelViewController: UIViewController {
         locationLabel.pin
             .below(of: titleTextField)
             .marginTop(10)
-            .horizontally(10)
-            .height(20)
+            .left(10)
+            .width(150)
+            .height(30)
         seasonTextField.pin
             .below(of: locationLabel)
             .marginTop(10)
@@ -264,7 +269,7 @@ final class AddTravelViewController: UIViewController {
             print("not image")
             return
         }
-        guard let location = locationLabel.text, !location.isEmpty else {
+        guard var location = locationLabel.text, !location.isEmpty else {
             print("empty or not valid location")
             return
         }
@@ -280,8 +285,14 @@ final class AddTravelViewController: UIViewController {
             print("empty or not valid price")
             return
         }
-        
-        let trip = Trip(title: title, image: image, location: location, season: season, date: date, price: price, userId: user.uid)
+        guard let description = descriptionTextView.text, !description.isEmpty else {
+            print("empty or not valid price")
+            return
+        }
+        if location == "Добавить город" {
+            location = "Город не указан"
+        }
+        let trip = Trip(title: title, image: image, location: location, season: season, date: date, price: price, userId: user.uid, description: description)
         
         loadingVC.modalPresentationStyle = .overCurrentContext
         loadingVC.modalTransitionStyle = .crossDissolve

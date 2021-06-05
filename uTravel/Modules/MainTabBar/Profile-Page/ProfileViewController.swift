@@ -121,6 +121,10 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        updateLayout()
+    }
+    
+    func updateLayout() {
         profileView.pin
             .top(view.pin.safeArea.top)
             .horizontally()
@@ -223,11 +227,12 @@ extension ProfileViewController: ProfileViewInput {
         self.user = user
         fullnameLabel.layer.backgroundColor = UIColor.white.cgColor
         fullnameLabel.text = user.name + " " + user.surname
-        fullnameLabel.pin.sizeToFit()
+       // fullnameLabel.pin.sizeToFit()
         profileImage.image = user.profileImage
         countryLabel.text = user.location
+        //countryLabel.pin.sizeToFit()
         dateSignInLabel.text = user.registerDate
         descriptionTextView.text = user.description
-        
+        updateLayout()
     }
 }

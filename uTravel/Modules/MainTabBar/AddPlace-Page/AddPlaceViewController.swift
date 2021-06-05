@@ -101,9 +101,16 @@ final class AddPlaceViewController: UIViewController {
         promptLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
         promptLabel.textColor = .black
         
-        titleLabel.text = "Выбрать место"
+        titleLabel.text = "Название:"
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         titleLabel.textColor = .black
+        
+        titleTextField.placeholder = "Название..."
+        titleTextField.layer.cornerRadius = 5
+        titleTextField.layer.borderColor = UIColor.gray.cgColor
+        titleTextField.layer.borderWidth = 0.5
+        titleTextField.layer.masksToBounds = true
+        titleTextField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
         
         ratingLabel.text = "Поставьте оценку:"
         ratingLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
@@ -158,7 +165,7 @@ final class AddPlaceViewController: UIViewController {
         headImageView.addSubview(headIconImageView)
         headImageView.addSubview(promptLabel)
         
-        [cosmosView, headImageView, titleLabel, ratingLabel, descriptionLabel, descriptionTextView, classPlaceHeadLabel, classPlaceTextField].forEach{view.addSubview($0) }
+        [cosmosView, headImageView, titleLabel, ratingLabel, descriptionLabel, descriptionTextView, classPlaceHeadLabel, classPlaceTextField, titleTextField].forEach{view.addSubview($0) }
         
     }
     
@@ -191,8 +198,14 @@ final class AddPlaceViewController: UIViewController {
             .marginTop(10)
             .sizeToFit()
             .left(10)
-        ratingLabel.pin
+        
+        titleTextField.pin
             .below(of: titleLabel)
+            .marginTop(10)
+            .horizontally(10)
+            .height(40)
+        ratingLabel.pin
+            .below(of: titleTextField)
             .marginTop(10)
             .sizeToFit()
             .left(10)
@@ -232,7 +245,7 @@ final class AddPlaceViewController: UIViewController {
     @objc
     func didTapAddBarButton() {
         
-        guard let title = titleLabel.text, !title.isEmpty else {
+        guard let title = titleTextField.text, !title.isEmpty else {
             print("empty or not valid title")
             return
         }

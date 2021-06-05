@@ -102,7 +102,7 @@ final class TravelDetailViewController: UIViewController {
         headCollectionPlaceLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         headCollectionPlaceLabel.textColor = .black
         
-        descriptionTextView.text = ",sdfkajsdklfjads;fjaksjdkf;ljaskld;jfklasjdl;fja;s" //"\(TravelDetailViewController.trip?.description ?? "")"
+        descriptionTextView.text = trip?.description
         descriptionTextView.font = UIFont.systemFont(ofSize: 14, weight: .light)
         descriptionTextView.isUserInteractionEnabled = false
         

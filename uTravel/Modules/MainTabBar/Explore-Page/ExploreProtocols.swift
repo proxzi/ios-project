@@ -33,6 +33,7 @@ protocol ExploreInteractorInput: class {
 
 protocol ExploreInteractorOutput: class {
     func loadedListTrips(trips: Array<Trip>)
+    func loadedPlaces(places: Array<Place>)
 }
 
 protocol ExploreRouterInput: class {

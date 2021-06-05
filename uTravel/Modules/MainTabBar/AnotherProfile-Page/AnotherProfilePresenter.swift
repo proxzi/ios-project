@@ -14,6 +14,7 @@ final class AnotherProfilePresenter {
 
 	private let router: AnotherProfileRouterInput
 	private let interactor: AnotherProfileInteractorInput
+    private var trip: Trip?
 
     init(router: AnotherProfileRouterInput, interactor: AnotherProfileInteractorInput) {
         self.router = router
@@ -25,15 +26,24 @@ extension AnotherProfilePresenter: AnotherProfileModuleInput {
 }
 
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
+    func updateTrips(user: UserData) {
+        interactor.updateListTrips(user: user)
+    }
+    
     func didSelectItemCollection(trip: Trip) {
-        
+        self.trip = trip
+        interactor.loadListPlaces(ref: trip.ref!)
     }
     
     
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
+    func loadedListTrips(trips: Array<Trip>) {
+        view?.loadedTrips(trips: trips)
+    }
+    
     func loadedPlaces(places: Array<Place>) {
-        
+        router.openTravelDetail(trip: self.trip!, places: places)
     }
 }

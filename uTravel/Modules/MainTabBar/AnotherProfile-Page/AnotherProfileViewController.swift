@@ -43,6 +43,7 @@ final class AnotherProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        output.updateTrips(user: user)
         
     }
 
@@ -141,6 +142,10 @@ final class AnotherProfileViewController: UIViewController {
 }
 
 extension AnotherProfileViewController: AnotherProfileViewInput {
+    func loadedTrips(trips: Array<Trip>) {
+        self.trips = trips
+        collectionView.reloadData()
+    }
 }
 
 extension AnotherProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -9,11 +9,12 @@
 import UIKit
 
 final class AnotherProfileRouter {
-    weak var viewCotroller: UIViewController?
+    weak var viewController: UIViewController?
 }
 
 extension AnotherProfileRouter: AnotherProfileRouterInput {
     func openTravelDetail(trip: Trip, places: Array<Place>) {
-        
+        let container = TravelDetailContainer.assemble(with: TravelDetailContext(), trip: trip, places: places)
+        self.viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

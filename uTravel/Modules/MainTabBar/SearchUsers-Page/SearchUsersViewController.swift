@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SearchUsersViewController: UIViewController {
+final class SearchUsersViewController: UIViewController, UISearchBarDelegate {
 	private let output: SearchUsersViewOutput
 
     
@@ -42,6 +42,7 @@ final class SearchUsersViewController: UIViewController {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearchBarButton))
         
         collectionUserView.backgroundColor = .systemBackground
         collectionUserView.dataSource = self
@@ -62,6 +63,15 @@ final class SearchUsersViewController: UIViewController {
             .top(10)
             .horizontally()
             .bottom(10)
+    }
+    
+    @objc
+    func didTapSearchBarButton() {
+        let searchController = UISearchController(searchResultsController: nil)
+        //searchController.searchResultsUpdater = collectionUserView
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for users"
+        present(searchController, animated: true, completion: nil)
     }
 }
 

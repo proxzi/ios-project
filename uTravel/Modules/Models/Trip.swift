@@ -18,9 +18,10 @@ struct Trip {
     let date: String
     let price: String
     let userId: String
+    let description: String
     let ref: FirebaseDatabase.DatabaseReference?
     
-    init(title: String, image: UIImage, location: String, season: String, date: String, price: String, userId: String){
+    init(title: String, image: UIImage, location: String, season: String, date: String, price: String, userId: String, description: String){
         self.title = title
         self.image = image
         self.location = location
@@ -30,6 +31,7 @@ struct Trip {
         self.userId = userId
         self.imageString = ""
         self.ref = nil
+        self.description = description
     }
     init(snapshot: FirebaseDatabase.DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
@@ -40,11 +42,12 @@ struct Trip {
         date = snapshotValue["date"] as! String
         price = snapshotValue["price"] as! String
         userId = snapshotValue["userId"] as! String
+        description = snapshotValue["description"] as! String
         image = UIImage()
         ref = snapshot.ref
     }
     
     func convertToDictionary() -> Any {
-        return ["title": title, "image": imageString, "location": location, "season": season, "date": date, "price": price, "userId": userId]
+        return ["title": title, "image": imageString, "location": location, "season": season, "date": date, "price": price, "userId": userId, "description": description]
     }
 }

@@ -39,21 +39,20 @@ final class MainTabBarController: UITabBarController {
         let searchUsersPage = UINavigationController(rootViewController: searchUsersContainer.viewController)
         searchUsersPage.title = "Поиск"
         
-        let chatContainer = ChatContainer.assemble(with: ChatContext())
-        let chatPage = UINavigationController(rootViewController: chatContainer.viewController)
-        chatPage.title = "Чат"
+//        let chatContainer = ChatContainer.assemble(with: ChatContext())
+//        let chatPage = UINavigationController(rootViewController: chatContainer.viewController)
+//        chatPage.title = "Чат"
 
         let profileContainer = ProfileContainer.assemble(with: ProfileContext())
         let profilePage = UINavigationController(rootViewController: profileContainer.viewController)
         profilePage.title = "Профиль"
         
         
-        setViewControllers([explorePage, searchUsersPage, chatPage, profilePage], animated: true)
+        setViewControllers([explorePage, searchUsersPage, profilePage], animated: true)
         
         self.tabBar.items?[0].image = UIImage(named: "airplane2")
         self.tabBar.items?[1].image = UIImage(named: "searchbar")
-        self.tabBar.items?[2].image = UIImage(systemName: "pencil")
-        self.tabBar.items?[3].image = UIImage(named: "profile")
+        self.tabBar.items?[2].image = UIImage(named: "profile")
 //        let myTabBarItem1 = (self.tabBar.items?[0])! as UITabBarItem
 //        myTabBarItem1.image = UIImage(systemName: "compass")
 //        myTabBarItem1.selectedImage = UIImage(systemName: "compass")

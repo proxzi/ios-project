@@ -39,13 +39,17 @@ extension ExplorePresenter: ExploreViewOutput {
     func didSelectItemCollection(with trip: Trip) {
         self.trip = trip
         interactor.loadListPlaces(ref: trip.ref!)
-        //router.openTravelDetail(with: trip, and: [Place]())
+        
     }
     
     
 }
 
 extension ExplorePresenter: ExploreInteractorOutput {
+    func loadedPlaces(places: Array<Place>) {
+        router.openTravelDetail(with: self.trip!, and: places)
+    }
+    
     func loadedListTrips(trips: Array<Trip>) {
         view?.loadedListTrips(trips: trips)
     }

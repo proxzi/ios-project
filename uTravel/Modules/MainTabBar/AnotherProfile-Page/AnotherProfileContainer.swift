@@ -24,7 +24,7 @@ final class AnotherProfileContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
-        router.viewCotroller = viewController
+        router.viewController = viewController
         return AnotherProfileContainer(view: viewController, input: presenter, router: router)
 	}
 
